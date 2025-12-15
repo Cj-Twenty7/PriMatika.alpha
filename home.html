@@ -33,8 +33,8 @@
     }
 
     .app-wrapper {
-      width: 100%;
-      min-height: 100%;
+      width: min-content(90%, 90%);
+      min-height: 500%;
       display: flex;
       flex-direction: column;
       padding: clamp(12px, 3vw, 24px);
@@ -679,7 +679,7 @@
       <div class="score-number" id="counting-score-number">
        5 / 5
       </div>
-      <div class="score-message" id="score-message">
+      <div class="score-message" id="c-score-message">
        Perfect! Amazing work!
       </div>
      </div>
@@ -694,7 +694,7 @@
   <div class="page" id="solving-difficulty-page">
     <div class="header">
       <button class="back-btn" id="back-from-solving-difficulty">←Back</button>
-     <h1 class="title" id="choose-dif">Choose Difficulty</h1>
+     <h1 class="title" id="choose-solve-dif">Choose Difficulty</h1>
     </div>
     <div class="operation-grid">
       <button class="operation-btn" id="solving-easy-btn"> 
@@ -763,13 +763,13 @@
       <div class="score-number" id="solving-score-number">
        5 / 5
       </div>
-      <div class="score-message" id="score-message">
+      <div class="" id="s-score-message">
        Perfect! Amazing work!
       </div>
      </div>
      <div class="score-actions">
       <button class="try-again-btn" id="solving-try-again-btn">Try Again</button> 
-      <button class="try-again-btn" id="solving-difficulty-change-btn">Change Difficulty</button>
+      <button class="try-again-btn" id="solving-difficulty-btn">Change Difficulty</button>
      </div>
     </div>
    </div>
@@ -800,7 +800,7 @@
    <div class="page" id="inequality-difficulty-page">
     <div class="header">
       <button class="back-btn" id="back-from-inequality-difficulty">←Back</button>
-     <h1 class="title" id="choose-dif">Choose Difficulty</h1>
+     <h1 class="title" id="choose-ineq-dif">Choose Difficulty</h1>
     </div>
     <div class="operation-grid">
       <button class="operation-btn" id="inequality-easy-btn"> 
@@ -864,13 +864,13 @@
       <div class="score-number" id="inequality-score-number">
        10 / 10
       </div>
-      <div class="score-message" id="score-message">
+      <div class="score-message" id="i-score-message">
        Perfect! Amazing work!
       </div>
      </div>
      <div class="score-actions">
       <button class="try-again-btn" id="inequality-try-again-btn">Try Again</button> 
-      <button class="try-again-btn" id="inequality-difficulty-change-btn">Change Difficulty</button>
+      <button class="try-again-btn" id="inequality-difficulty-btn">Change Difficulty</button>
      </div>
     </div>
    </div>
@@ -886,7 +886,7 @@
 
 
   <script>
-    
+
   const translations = {
   en: {
     app_title: "PriMatika",
@@ -923,7 +923,9 @@
     counting_difficulty_btn: "Change Difficulty",
     solving_difficulty_btn: "Change Difficulty",
     inequality_difficulty_btn:"Change Difficulty",
-    score_message: "Perfect! Amazing work!",
+    c_score_message: "Perfect! Amazing work!",
+    s_score_message: "Perfect! Amazing work!",
+    i_score_message: "Perfect! Amazing work!",
   },
   fil: {
     app_title: "PriMatika",
@@ -960,7 +962,9 @@
     counting_difficulty_btn: "Palitan ang Level", 
     solving_difficulty_btn: "Palitan ang Level", 
     inequality_difficulty_btn: "Palitan ang Level",
-    score_message: "Ang galing! Perfect ka!",
+    c_score_message: "Ang galing! Perfect ka!",
+    s_score_message: "Ang galing! Perfect ka!",
+    i_score_message: "Ang galing! Perfect ka!",
   },
   hil: {
     app_title: "PriMatika",
@@ -997,13 +1001,15 @@
     counting_difficulty_btn: "Islan ang Level", 
     solving_difficulty_btn: "Islan ang Level",
     inequality_difficulty_btn: "Islan ang Level",
-    score_message: "Kasagad! Perfect gid!",
+    c_score_message: "Kasagad! Perfect gid!",
+    s_score_message: "Kasagad! Perfect gid!",
+    i_score_message: "Kasagad! Perfect gid!",
   }
 }
 
       // Number words for 1-100
     const numberWords = {
-      en: {
+      /*en: {*/
       1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
       6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
       11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen',
@@ -1024,8 +1030,8 @@
       86: 'eighty-six', 87: 'eighty-seven', 88: 'eighty-eight', 89: 'eighty-nine', 90: 'ninety',
       91: 'ninety-one', 92: 'ninety-two', 93: 'ninety-three', 94: 'ninety-four', 95: 'ninety-five',
       96: 'ninety-six', 97: 'ninety-seven', 98: 'ninety-eight', 99: 'ninety-nine', 100: 'one hundred'
-   },
-
+   }
+/*
      fil: {
      1: 'isa', 2: 'dalawa', 3: 'tatlo', 4: 'apat', 5: 'lima', 6: 'anim', 7: 'pito', 8: 'walo', 9: 'siyam', 10: 'sampu',
      11: 'labing-isa', 12: 'labindalawa', 13: 'labintatlo', 14: 'labing-apat', 15: 'labing-lima', 16: 'labing-anim', 17: 'labimpito', 18: 'labing-walo', 19: 'labingsiyam', 20: 'dalawampu',
@@ -1053,16 +1059,17 @@
     90: 'noventa', 91: 'noventa-uno', 92: 'noventa-dos', 93: 'noventa-tres', 94: 'noventa-kwatro', 95: 'noventa-singko', 96: 'noventa-sais', 97: 'noventa-siete', 98: 'noventa-ocho', 99: 'noventa-nueve',
     100: 'syento'
   }
-    }
+    } */
 
-    async function onConfigChange(config) {
+ function onConfigChange() {
       const appWrapper = document.querySelector('.app-wrapper');
       const title = document.getElementById('app-title');
       const countbtntext = document.getElementById('count-btn-text');
       const solvebtntext = document.getElementById('solve-btn-text');
       const numbtntext = document.getElementById('num-btn-text');
       const ineqbtntext = document.getElementById('ineq-btn-text');
-      const choosedif = document.getElementById('choose-dif');
+      const choosesolvedif = document.getElementById('choose-solve-dif');
+      const chooseineqdif = document.getElementById('choose-ineq-dif');
       const iezdif = document.getElementById('i-ez-dif');
       const sezdif = document.getElementById('s-ez-dif');
       const cezdif = document.getElementById('c-ez-dif');
@@ -1078,7 +1085,7 @@
       const solveit = document.getElementById('solve-it');      
       const solveequ = document.getElementById('solve-equ');      
       const chooserange = document.getElementById('choose-range');      
-      const numberdistitle = document.getElementById('number-display-title');      
+      const numberDisplayTitle = document.getElementById('number-display-title');      
       const compnum = document.getElementById('comp-num');
       const choosecomp = document.getElementById('choose-comp');
       const checkbtn = document.getElementById('check-btn');
@@ -1089,8 +1096,16 @@
       const countingbtn = document.getElementById('counting-difficulty-btn');
       const solvingbtn = document.getElementById('solving-difficulty-btn');
       const inequalitybtn = document.getElementById('inequality-difficulty-btn');
-      const scoremessage = document.getElementById('score-message');
+      const cscoremessage = document.getElementById('c-score-message');
+      const sscoremessage = document.getElementById('s-score-message');
+      const iscoremessage = document.getElementById('i-score-message');
 
+      const appIcon = document.getElementById('app-icon');
+      const mainTitle = document.getElementById('main-title');
+      const countingBtn = document.getElementById('counting-btn');
+      const solvingBtn = document.getElementById('solving-btn');
+      const numberTableBtn = document.getElementById('number-table-btn');
+      const inequalityBtn = document.getElementById('inequality-btn');
       const bgColor = defaultConfig.background_color;
       const surfaceColor = defaultConfig.surface_color;
       const textColor = defaultConfig.text_color;
@@ -1101,9 +1116,9 @@
       appIcon.style.background = surfaceColor;
       mainTitle.style.color = textColor;
 
-      const allTitles = document.querySelectorAll('title');
-      allTitles.forEach(title => {
-        title.style.color = textColor;
+      const allTitles = document.querySelectorAll('.t');
+      allTitles.forEach(t => {
+        t.style.color = textColor;
       });
 
       const allBackBtns = document.querySelectorAll('back-btn');
@@ -1150,7 +1165,7 @@
        solveit.textContent = defaultConfig.solve_it;      
        solveequ.textContent = defaultConfig.solve_equ;      
        chooserange.textContent = defaultConfig.choose_range;      
-       numberdistitle.textContent = defaultConfig.number_display_title;      
+       numberDisplayTitle.textContent = defaultConfig.number_display_title;      
        compnum.textContent = defaultConfig.comp_num;
        choosecomp.textContent = defaultConfig.choose_comp;
        checkbtn.textContent = defaultConfig.check_btn;
@@ -1177,7 +1192,8 @@
   document.getElementById('ineq-btn-text').textContent = translations[lang].ineq_btn_text;
 
   // Difficulty
-  document.getElementById('choose-dif').textContent = translations[lang].choose_dif;
+  document.getElementById('choose-solve-dif').textContent = translations[lang].choose_solve_dif;
+  document.getElementById('choose-ineq-dif').textContent = translations[lang].choose_ineq_dif;
   document.getElementById('i-ez-dif').textContent = translations[lang].i_ez_dif;
   document.getElementById('s_ez-dif').textContent = translations[lang].s_ez_dif;
   document.getElementById('c_ez-dif').textContent = translations[lang].c_ez_dif;
@@ -1219,6 +1235,7 @@
   // Save language
   updateTexts(lang);
   localStorage.setItem("lang", lang);
+  changeLanguage(lang);
 }
 
 function updateTexts(lang) {
