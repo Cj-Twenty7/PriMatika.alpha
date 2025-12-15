@@ -32,7 +32,7 @@
     }
 
     .app-wrapper {
-      width: 100%;
+      width: min-content(90%, 90%);
       min-height: 100%;
       display: flex;
       flex-direction: column;
@@ -204,6 +204,38 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    .settings-btn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+}
+
+.settings {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  z-index: 1000;
+  width: 260px;
+}
+
+.settings.hidden {
+  display: none;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0;
+}
+
   </style>
   
   <style>@view-transition { navigation: auto; }</style>
@@ -227,15 +259,45 @@
         <label for="age-input" class="form-label" id="age-label">How old are you?</label>
         <input type="number" id="age-input" class="form-input" min="0" max="120" required>
       </div>
-      <button type="submit" class="submit-btn" id="submit-btn">Get Started!</button>
+      <button type="submit" class="submit-btn sfx-click" id="submit-btn">Get Started!</button>
       
     </form>
       <!-- Language Selector -->
   <div class="language-selector">
-    <button onclick="changeLanguage('en')" class="language-btn active" data-lang="en">Eng</button> 
-    <button onclick="changeLanguage('fil')" class="language-btn" data-lang="fil">Fil</button> 
-    <button onclick="changeLanguage('hil')" class="language-btn" data-lang="hil">Hil</button>
+    <button onclick="changeLanguage('en')" class="language-btn active sfx-click" data-lang="en">Eng</button> 
+    <button onclick="changeLanguage('fil')" class="language-btn sfx-click" data-lang="fil">Fil</button> 
+    <button onclick="changeLanguage('hil')" class="language-btn sfx-click" data-lang="hil">Hil</button>
   </div>
+
+  /*<!-- Settings Button -->
+  <button class="sfx-click settings-btn"> ⚙ </button>
+<!-- Settings Panel -->
+<div id="settingsPanel" class="settings hidden">
+  <h3 data-i18n="settings_title">Settings</h3>
+
+  <label class="setting-item">
+    <span data-i18n="settings_music">Music</span>
+    <input type="checkbox" id="musicToggle">
+  </label>
+
+  <label class="setting-item">
+    <span data-i18n="settings_sfx">Sound Effects</span>
+    <input type="checkbox" id="sfxToggle">
+  </label>
+
+  <label class="setting-item">
+    <span data-i18n="settings_vibration">Vibration</span>
+    <input type="checkbox" id="vibrationToggle">
+  </label>
+
+  <label class="setting-item">
+    <span data-i18n="settings_volume">Volume</span>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.05">
+  </label>
+
+
+</div>*/
+
   </div>
 
   <div class="welcome-message" id="welcome-message">
@@ -244,11 +306,19 @@
     </div>
     <h2 class="welcome-message-text" id="greeting-text">Welcome!</h2>
     <p class="welcome-message-subtext" id="greeting-subtext">Let's start learning math!</p>
-    <button type="submit" class="submit-btn" id="lez-go" onclick="location.href='home.html'">Let's Go!</a>
+    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='home.html'">Let's Go!</a>
     </button>
   </div>
 
 </div>
+
+<audio id="clickSound" src="sound-7.mp3" preload="auto"></audio>
+
+    <audio id="bg-music" autoplay loop>
+        <source src="bgm2-index.mp3" type="audio/mpeg">
+        <source src="music.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
 
   <script>
     const defaultConfig = {
@@ -258,6 +328,37 @@
       primary_action_color: '#1e40af',
       secondary_action_color: '#60a5fa',
     }
+
+   /* const settings = {
+  music: JSON.parse(localStorage.getItem('music')) ?? true,
+  sfx: JSON.parse(localStorage.getItem('sfx')) ?? true,
+  vibration: JSON.parse(localStorage.getItem('vibration')) ?? true,
+  volume: parseFloat(localStorage.getItem('volume')) || 0.7
+};
+
+     const sound = document.getElementById('clickSound');
+    clickSound.volume = settings.volume;
+
+    if (settings.music) {
+    bgMusic.play().catch(() => {}); }*/
+
+     document.addEventListener('click', (e) => {
+     if (!e.target.closest('.sfx-click')) return;
+
+     sound.currentTime = 0;
+     sound.play(); 
+    });
+
+        document.addEventListener('click', () => {
+      sound.load();
+      }, { once: true });
+
+    document.addEventListener('click', function () {
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play().catch(err => console.log("Autoplay blocked:", err));
+            }
+        });
 
     const translations = {
       en: {
