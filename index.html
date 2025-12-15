@@ -227,7 +227,7 @@
         <label for="age-input" class="form-label" id="age-label">How old are you?</label>
         <input type="number" id="age-input" class="form-input" min="0" max="120" required>
       </div>
-      <button type="submit" class="submit-btn"> <span id="submit-btn">Get Started!</span> </button>
+      <button type="submit" class="submit-btn" id="submit-btn">Get Started!</button>
       
     </form>
       <!-- Language Selector -->
@@ -244,8 +244,7 @@
     </div>
     <h2 class="welcome-message-text" id="greeting-text">Welcome!</h2>
     <p class="welcome-message-subtext" id="greeting-subtext">Let's start learning math!</p>
-    <button type="submit" class="submit-btn" id="submit-btn">
-      <a href="home.html" style="color:black; text-decoration: none;" id="lez-go">Let's Go!</a>
+    <button type="submit" class="submit-btn" id="lez-go" onclick="location.href='home.html'">Let's Go!</a>
     </button>
   </div>
 
@@ -268,6 +267,7 @@
         name_label: "What's your name?",
         age_label: 'How old are you?',
         submit_btn: "Get Started!",
+        greeting_subtext: "Let's start learning math!",
         lez_go: "Let's Go!"
       },
       fil: {
@@ -277,6 +277,7 @@
         name_label: 'Ano ang iyong pangalan?',
         age_label: 'Ilang taon ka na?',
         submit_btn: "Magsimula na Tayo!",
+        greeting_subtext: "Magsimula na tayong mag-aral ng math!",
         lez_go: "Tara na!"
       },
       hil: {
@@ -286,6 +287,7 @@
         name_label: 'Ano ang imo nga ngalan?',
         age_label: 'Pila ka tuig ka na?',
         submit_btn: "Sugod ta!",
+        greeting_subtext: "Sugod ta tuon math!",
         lez_go: "Ta!"
       }
     }
@@ -327,6 +329,7 @@
       nameLabel.textContent = defaultConfig.name_label;
       ageLabel.textContent = defaultConfig.age_label;
       submitbtn.textContent = defaultConfig.submit_btn;
+      greetingSubtext.textContent = defaultConfig.greeting_subtext;
       lesgo.textContent = defaultConfig.lez_go;
     }
 
@@ -381,7 +384,9 @@
         ['welcome_subtitle', config.welcome_subtitle || defaultConfig.welcome_subtitle],
         ['name_label', config.name_label || defaultConfig.name_label],
         ['age_label', config.age_label || defaultConfig.age_label],
-        ['button_text', config.button_text || defaultConfig.button_text]
+        ['button_text', config.button_text || defaultConfig.button_text],
+        ['greeting_subtext', config.greeting_subtext || defaultConfig.greeting_subtext],
+        ['submit_btn', config.submit_btn || defaultConfig.submit_btn]
       ]);
     }
 
@@ -419,7 +424,8 @@ function changeLanguage(lang) {
   document.getElementById('name-label').textContent = translations[lang].name_label;
   document.getElementById('age-label').textContent = translations[lang].age_label;
   document.getElementById('greeting-text').textContent = translations[lang].welcome_message;
-  document.getElementById('greeting-subtext').textContent = translations[lang].welcome_subtext;
+  document.getElementById('greeting-subtext').textContent = translations[lang].greeting_subtext;
+  document.getElementById('submit-btn').textContent = translations[lang].submit_btn;
   document.querySelector('lez-go').textContent = translations[lang].les_go;
 
   updateTexts(lang);
