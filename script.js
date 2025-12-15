@@ -1,7 +1,7 @@
 const defaultConfig = {
       background_color: '#1e40af',
       surface_color: '#60a5fa',
-      text_color: '#ffffff',
+      text_color: '#fff',
       primary_action_color: '#1e40af',
       secondary_action_color: '#60a5fa',
       app_title: 'PriMatika',
@@ -11,6 +11,8 @@ const defaultConfig = {
       inequality_button: 'Inequality'
     };
 
+    let start = 1;
+    let end = 10;
 
     // Counting state
     let countingDifficulty = 'easy';
@@ -627,6 +629,7 @@ function shuffle(arr) {
 
       applyQuizColors();
       showPage('solving-score-page');
+      showPage('solvingDifficulty');
     }
 
     document.getElementById('solving-try-again-btn').addEventListener('click', () => {
@@ -812,6 +815,7 @@ function shuffle(arr) {
 
       applyQuizColors();
       showPage('inequality-score-page');
+      showPage('inequalityDifficulty');
     }
 
     document.getElementById('inequality-options').addEventListener('click', (e) => {
