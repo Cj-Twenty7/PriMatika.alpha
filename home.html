@@ -25,6 +25,7 @@
       height: 100%;
       width: 100%;
       background-image: url("bg-home.jpg");
+      background-size: contain;
     }
 
     html {
@@ -34,11 +35,11 @@
 
     .app-wrapper {
       width: min-content(90%, 90%);
-      min-height: 500%;
+      min-height: 100%;
       display: flex;
       flex-direction: column;
       padding: clamp(12px, 3vw, 24px);
-      padding-bottom: 80px;
+      padding-bottom: 50px;
     }
 
     .header {
@@ -85,7 +86,7 @@
       display: flex;
       flex-direction: column;
       gap: clamp(12px, 2vw, 16px);
-      max-width: 500px;
+      max-width: 80%;
       margin: 0 auto;
       width: 100%;
     }
@@ -603,22 +604,22 @@
      <h1 class="title" id="app-title">PriMatika</h1>
     </div>
     <div class="menu-container">
-     <button class="menu-btn" id="counting-btn"> 
+     <button class="menu-btn sfx-click" id="counting-btn"> 
         <span class="menu-btn-icon">🔢</span> 
-        <span class="menu-btn-text" id="count-btn-text">Counting</span>
+        <span class="menu-btn-text sfx-click" id="count-btn-text">Counting</span>
         <span class="menu-btn-arrow">→</span> 
       </button>
-      <button class="menu-btn" id="solving-btn"> 
+      <button class="menu-btn sfx-click" id="solving-btn"> 
         <span class="menu-btn-icon">✏️</span> 
         <span class="menu-btn-text" id="solve-btn-text">Solving</span> 
         <span class="menu-btn-arrow">→</span> 
       </button> 
-      <button class="menu-btn" id="inequality-btn"> 
+      <button class="menu-btn sfx-click" id="inequality-btn"> 
         <span class="menu-btn-icon">⚖️</span> 
         <span class="menu-btn-text" id="ineq-btn-text">Inequality</span> 
         <span class="menu-btn-arrow">→</span> 
       </button>
-      <button class="menu-btn" id="number-table-btn"> 
+      <button class="menu-btn sfx-click" id="number-table-btn"> 
         <span class="menu-btn-icon">📊</span> 
         <span class="menu-btn-text" id="num-btn-text">Number Table</span> 
         <span class="menu-btn-arrow">→</span> 
@@ -629,19 +630,19 @@
    <!-- Counting Difficulty Page -->
    <div class="page" id="counting-difficulty-page">
     <div class="header">
-      <button class="back-btn" id="back-from-counting-difficulty">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-counting-difficulty">←Back</button>
      <h1 class="title" id="counting-difficulty-page">Choose Difficulty</h1>
     </div>
     <div class="operation-grid">
-      <button class="operation-btn" id="counting-easy-btn"> 
+      <button class="operation-btn sfx-click" id="counting-easy-btn"> 
         <span class="operation-icon">😊</span> 
         <span id="c-ez-dif">Easy</span> 
       </button> 
-      <button class="operation-btn" id="counting-moderate-btn"> 
+      <button class="operation-btn sfx-click" id="counting-moderate-btn"> 
         <span class="operation-icon">😐</span> 
         <span id="c-mod-dif">Moderate</span> 
       </button> 
-      <button class="operation-btn" id="counting-hard-btn"> 
+      <button class="operation-btn sfx-click" id="counting-hard-btn"> 
         <span class="operation-icon">😰</span> 
         <span id="c-hard-dif">Hard</span> 
       </button>
@@ -650,7 +651,7 @@
    
    <!-- Counting Quiz Page -->
    <div class="page" id="counting-quiz-page">
-    <div class="header"><button class="back-btn" id="back-from-counting-quiz">←Back</button>
+    <div class="header"><button class="back-btn sfx-click" id="back-from-counting-quiz">←Back</button>
      <h1 class="title" id="tap-in-order">Tap in Order</h1>
     </div>
     <div class="quiz-container">
@@ -668,7 +669,7 @@
    <!-- Counting Score Page -->
    <div class="page" id="counting-score-page">
     <div class="header">
-      <button class="back-btn" id="back-from-counting-score">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-counting-score">←Back</button>
      <h1 class="title" id="ur-score">Your Score</h1>
     </div>
     <div class="quiz-container">
@@ -684,8 +685,8 @@
       </div>
      </div>
      <div class="score-actions">
-      <button class="try-again-btn" id="counting-try-again-btn">Try Again</button> 
-      <button class="try-again-btn" id="counting-difficulty-btn">Change Difficulty</button>
+      <button class="try-again-btn sfx-click" id="counting-try-again-btn">Try Again</button> 
+      <button class="try-again-btn sfx-click" id="counting-difficulty-btn">Change Difficulty</button>
      </div>
     </div>
    </div>
@@ -693,19 +694,19 @@
    <!-- Solving Difficulty Page -->
   <div class="page" id="solving-difficulty-page">
     <div class="header">
-      <button class="back-btn" id="back-from-solving-difficulty">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-solving-difficulty">←Back</button>
      <h1 class="title" id="choose-solve-dif">Choose Difficulty</h1>
     </div>
     <div class="operation-grid">
-      <button class="operation-btn" id="solving-easy-btn"> 
+      <button class="operation-btn sfx-click" id="solving-easy-btn"> 
         <span class="operation-icon">😊</span> 
         <span id="s-ez-dif">Easy</span> 
       </button> 
-      <button class="operation-btn" id="solving-moderate-btn"> 
+      <button class="operation-btn sfx-click" id="solving-moderate-btn"> 
         <span class="operation-icon">😐</span> 
         <span id="s-mod-dif">Moderate</span> 
       </button> 
-      <button class="operation-btn" id="solving-hard-btn"> 
+      <button class="operation-btn sfx-click" id="solving-hard-btn"> 
         <span class="operation-icon">😰</span> 
         <span id="s-hard-dif">Hard</span> </button>
     </div>
@@ -714,15 +715,15 @@
    <!-- Operation Selection Page -->
    <div class="page" id="operation-selection-page">
     <div class="header">
-      <button class="back-btn" id="back-from-operation-selection">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-operation-selection">←Back</button>
      <h1 class="title" id="choose-ope">Choose Operation</h1>
     </div>
     <div class="operation-grid">
-      <button class="operation-btn" id="add-operation-btn"> 
+      <button class="operation-btn sfx-click" id="add-operation-btn"> 
         <span class="operation-icon">➕</span> 
         <span id="add-ope">Add</span> 
       </button> 
-      <button class="operation-btn" id="subtract-operation-btn"> 
+      <button class="operation-btn sfx-click" id="subtract-operation-btn"> 
         <span class="operation-icon">➖</span> 
         <span id="sub-ope">Subtract</span> 
       </button>
@@ -732,7 +733,7 @@
    <!-- Solving Quiz Page -->
    <div class="page" id="solving-quiz-page">
     <div class="header">
-      <button class="back-btn" id="back-from-solving-quiz">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-solving-quiz">←Back</button>
      <h1 class="title" id="solve-it">Solve It!</h1>
     </div>
     <div class="equation-container">
@@ -744,7 +745,7 @@
      </div>
      <div class="equation-display" id="equation-display">
       5 + 3 = ?
-     </div><input type="number" class="answer-input" id="answer-input" placeholder="?"> <button class="check-btn" id="check-btn">Check Answer</button>
+     </div><input type="number" class="answer-input" id="answer-input" placeholder="?"> <button class="check-btn sfx-click" id="check-btn">Check Answer</button>
      <div class="feedback-message" id="feedback-message" style="display: none;"></div>
     </div>
    </div>
@@ -752,7 +753,7 @@
    <!-- Solving Score Page -->
    <div class="page" id="solving-score-page">
     <div class="header">
-      <button class="back-btn" id="back-from-solving-score">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-solving-score">←Back</button>
      <h1 class="title" id="ur-score">Your Score</h1>
     </div>
     <div class="quiz-container">
@@ -763,13 +764,13 @@
       <div class="score-number" id="solving-score-number">
        5 / 5
       </div>
-      <div class="" id="s-score-message">
+      <div class="" id="s-">
        Perfect! Amazing work!
       </div>
      </div>
      <div class="score-actions">
-      <button class="try-again-btn" id="solving-try-again-btn">Try Again</button> 
-      <button class="try-again-btn" id="solving-difficulty-btn">Change Difficulty</button>
+      <button class="try-again-btn sfx-click" id="solving-try-again-btn">Try Again</button> 
+      <button class="try-again-btn sfx-click" id="solving-difficulty-btn">Change Difficulty</button>
      </div>
     </div>
    </div>
@@ -777,7 +778,7 @@
    <!-- Number Table Range Selection Page -->
    <div class="page" id="number-table-page">
     <div class="header">
-      <button class="back-btn" id="back-from-number-table">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-number-table">←Back</button>
      <h1 class="title" id="choose-range">Choose a Range</h1>
     </div>
     <div class="operation-grid" id="number-table-range-grid"><!-- Range buttons will be generated here -->
@@ -787,7 +788,7 @@
    <!-- Number Table Display Page -->
    <div class="page" id="number-table-display-page">
     <div class="header">
-      <button class="back-btn" id="back-from-number-display">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-number-display">←Back</button>
      <h1 class="title" id="number-display-title" itemid="num-title">Numbers</h1>
     </div>
     <div class="quiz-container">
@@ -799,19 +800,19 @@
    <!-- Inequality Difficulty Page -->
    <div class="page" id="inequality-difficulty-page">
     <div class="header">
-      <button class="back-btn" id="back-from-inequality-difficulty">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-inequality-difficulty">←Back</button>
      <h1 class="title" id="choose-ineq-dif">Choose Difficulty</h1>
     </div>
     <div class="operation-grid">
-      <button class="operation-btn" id="inequality-easy-btn"> 
+      <button class="operation-btn sfx-click" id="inequality-easy-btn"> 
         <span class="operation-icon">😊</span> 
         <span id="i-ez-dif">Easy</span> 
       </button> 
-      <button class="operation-btn" id="inequality-moderate-btn"> 
+      <button class="operation-btn sfx-click" id="inequality-moderate-btn"> 
         <span class="operation-icon">😐</span> 
         <span id="i-mod-dif">Moderate</span> 
       </button> 
-      <button class="operation-btn" id="inequality-hard-btn"> 
+      <button class="operation-btn sfx-click" id="inequality-hard-btn"> 
         <span class="operation-icon">😰</span> 
         <span id="i-hard-dif">Hard</span> 
       </button>
@@ -821,7 +822,7 @@
    <!-- Inequality Quiz Page -->
    <div class="page" id="inequality-quiz-page">
     <div class="header">
-      <button class="back-btn" id="back-from-inequality-quiz">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-inequality-quiz">←Back</button>
      <h1 class="title" id="comp-num">Compare Numbers</h1>
     </div>
     <div class="quiz-container">
@@ -843,9 +844,9 @@
       </div>
      </div>
      <div class="inequality-options" id="inequality-options">
-      <button class="inequality-btn" data-symbol="<">&lt;</button> 
-      <button class="inequality-btn" data-symbol="=">=</button> 
-      <button class="inequality-btn" data-symbol=">">&gt;</button>
+      <button class="inequality-btn sfx-click" data-symbol="<">&lt;</button> 
+      <button class="inequality-btn sfx-click" data-symbol="=">=</button> 
+      <button class="inequality-btn sfx-click" data-symbol=">">&gt;</button>
      </div>
     </div>
    </div>
@@ -853,7 +854,7 @@
    <!-- Inequality Score Page -->
    <div class="page" id="inequality-score-page">
     <div class="header">
-      <button class="back-btn" id="back-from-inequality-score">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-inequality-score">←Back</button>
      <h1 class="title" id="ur-score">Your Score</h1>
     </div>
     <div class="quiz-container">
@@ -869,23 +870,57 @@
       </div>
      </div>
      <div class="score-actions">
-      <button class="try-again-btn" id="inequality-try-again-btn">Try Again</button> 
-      <button class="try-again-btn" id="inequality-difficulty-btn">Change Difficulty</button>
+      <button class="try-again-btn sfx-click" id="inequality-try-again-btn">Try Again</button> 
+      <button class="try-again-btn sfx-click" id="inequality-difficulty-btn">Change Difficulty</button>
      </div>
     </div>
    </div>
    
       <!-- Language Selector -->
   <div class="language-selector">
-    <button onclick="changeLanguage('en')" class="language-btn active" data-lang="en">Eng</button> 
-    <button onclick="changeLanguage('fil')" class="language-btn" data-lang="fil">Fil</button> 
-    <button onclick="changeLanguage('hil')" class="language-btn" data-lang="hil">Hil</button>
+    <button onclick="changeLanguage('en')" class="language-btn active sfx-click" data-lang="en">Eng</button> 
+    <button onclick="changeLanguage('fil')" class="language-btn sfx-click" data-lang="fil">Fil</button> 
+    <button onclick="changeLanguage('hil')" class="language-btn sfx-click" data-lang="hil">Hil</button>
   </div>
    
   </div>
+    <audio id="clickSound" src="sound-7.mp3" preload="auto"></audio>
 
-
+    <audio id="bg-music" autoplay loop>
+        <source src="bgm1-homescreen.mp3" type="audio/mpeg">
+        <source src="music.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
   <script>
+
+    const sound = document.getElementById('clickSound');
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.sfx-click')) return;
+
+  sound.currentTime = 0;
+  sound.play();
+});
+
+/*
+    const button = document.getElementById('counting-btn');
+    const sound = document.getElementById('clickSound');
+
+    button.addEventListener('click', () => {
+      sound.currentTime = 0; // restart sound if clicked quickly
+      sound.play();
+    }); */
+
+    document.addEventListener('click', () => {
+      sound.load();
+      }, { once: true });
+
+    document.addEventListener('click', function () {
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play().catch(err => console.log("Autoplay blocked:", err));
+            }
+        });
 
   const translations = {
   en: {
@@ -1009,7 +1044,7 @@
 
       // Number words for 1-100
     const numberWords = {
-      /*en: {*/
+      en: {
       1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
       6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
       11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen',
@@ -1030,8 +1065,7 @@
       86: 'eighty-six', 87: 'eighty-seven', 88: 'eighty-eight', 89: 'eighty-nine', 90: 'ninety',
       91: 'ninety-one', 92: 'ninety-two', 93: 'ninety-three', 94: 'ninety-four', 95: 'ninety-five',
       96: 'ninety-six', 97: 'ninety-seven', 98: 'ninety-eight', 99: 'ninety-nine', 100: 'one hundred'
-   }
-/*
+   },
      fil: {
      1: 'isa', 2: 'dalawa', 3: 'tatlo', 4: 'apat', 5: 'lima', 6: 'anim', 7: 'pito', 8: 'walo', 9: 'siyam', 10: 'sampu',
      11: 'labing-isa', 12: 'labindalawa', 13: 'labintatlo', 14: 'labing-apat', 15: 'labing-lima', 16: 'labing-anim', 17: 'labimpito', 18: 'labing-walo', 19: 'labingsiyam', 20: 'dalawampu',
@@ -1045,7 +1079,6 @@
      90: 'siyamnapu', 91: "siyamnaumpu't isa", 92: "siyamnaumpu't dalawa", 93: "siyamnaumpu't tatlo", 94: "siyamnaumpu't apat", 95: "siyamnaumpu't lima", 96: "siyamnaumpu't anim", 97: "siyamnaumpu't pito", 98: "siyamnaumpu't walo", 99: "siyamnaumpu't siyam",
      100: 'isandaan'
   },
-
   hil: {
     1: 'isa', 2: 'duha', 3: 'tatlo', 4: 'apat', 5: 'lima', 6: 'anum', 7: 'pito', 8: 'walo', 9: 'nueve', 10: 'diez',
     11: 'onse', 12: 'dose', 13: 'trese', 14: 'katorse', 15: 'kinse', 16: 'disiseis', 17: 'disisiete', 18: 'diesy ocho', 19: 'diesy nueve', 20: 'bente',
@@ -1059,7 +1092,7 @@
     90: 'noventa', 91: 'noventa-uno', 92: 'noventa-dos', 93: 'noventa-tres', 94: 'noventa-kwatro', 95: 'noventa-singko', 96: 'noventa-sais', 97: 'noventa-siete', 98: 'noventa-ocho', 99: 'noventa-nueve',
     100: 'syento'
   }
-    } */
+    }
 
  function onConfigChange() {
       const appWrapper = document.querySelector('.app-wrapper');
