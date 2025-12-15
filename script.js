@@ -156,6 +156,86 @@ const defaultConfig = {
       numberTableRangeGrid.appendChild(btn);
     }
 
+  /*  const settings = {
+  music: JSON.parse(localStorage.getItem('music')) ?? true,
+  sfx: JSON.parse(localStorage.getItem('sfx')) ?? true,
+  vibration: JSON.parse(localStorage.getItem('vibration')) ?? true,
+  volume: parseFloat(localStorage.getItem('volume')) || 0.7
+};
+
+    const settingsBtn = document.getElementById('settingsBtn');
+const settingsPanel = document.getElementById('settingsPanel');
+const closeSettings = document.getElementById('closeSettings');
+
+const musicToggle = document.getElementById('musicToggle');
+const sfxToggle = document.getElementById('sfxToggle');
+const vibrationToggle = document.getElementById('vibrationToggle');
+const volumeSlider = document.getElementById('volumeSlider');
+
+// Initialize UI
+musicToggle.checked = settings.music;
+sfxToggle.checked = settings.sfx;
+vibrationToggle.checked = settings.vibration;
+volumeSlider.value = settings.volume;
+
+settingsBtn.addEventListener('click', () => {
+  settingsPanel.classList.remove('hidden');
+});
+
+closeSettings.addEventListener('click', () => {
+  settingsPanel.classList.add('hidden');
+});
+
+  musicToggle.addEventListener('change', () => {
+  settings.music = musicToggle.checked;
+  localStorage.setItem('music', settings.music);
+
+  if (settings.music) bgMusic.play().catch(() => {});
+  else bgMusic.pause();
+});
+
+sfxToggle.addEventListener('change', () => {
+  settings.sfx = sfxToggle.checked;
+  localStorage.setItem('sfx', settings.sfx);
+});
+
+vibrationToggle.addEventListener('change', () => {
+  settings.vibration = vibrationToggle.checked;
+  localStorage.setItem('vibration', settings.vibration);
+});
+
+volumeSlider.addEventListener('input', () => {
+  settings.volume = parseFloat(volumeSlider.value);
+  localStorage.setItem('volume', settings.volume);
+
+  bgMusic.volume = settings.volume;
+  clickSound.volume = settings.volume;
+});
+
+  document.addEventListener('click', (e) => {
+  if (!e.target.closest('.sfx-click')) return;
+  if (!settings.sfx) return;
+
+  clickSound.currentTime = 0;
+  clickSound.play();
+});
+
+  function vibrate(ms = 30) {
+  if (!settings.vibration) return;
+  if (!navigator.vibrate) return;
+
+  navigator.vibrate(ms);
+}
+
+button.addEventListener('click', () => {
+  vibrate(40);
+});
+
+button.addEventListener('click', () => {
+  vibrate(40);
+});
+*/
+
     function mapToEditPanelValues(config) {
       return new Map([
         ['app_title', config.app_title || defaultConfig.app_title],
@@ -658,6 +738,9 @@ function shuffle(arr) {
       numberDisplayTitle.textContent = `${start}-${end}`;
       numberDisplayList.innerHTML = '';
       
+      const numberWords =
+      (translations[currentLanguage] && translations[currentLanguage].numbers) || translations.en.numbers;
+
       for (let num = start; num <= end; num++) {
         const card = document.createElement('div');
         card.className = 'number-display-card';
