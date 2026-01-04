@@ -504,7 +504,7 @@
       });
     }
 
-    /* Form submission handler */
+    /* Form submission handler (Old One)
     const form = document.getElementById('welcome-form');
     const welcomeContainer = document.getElementById('welcome-container');
     const welcomeMessage = document.getElementById('welcome-message');
@@ -516,11 +516,26 @@
       const name = document.getElementById('name-input').value;
       const age = document.getElementById('age-input').value;
 
-      /* Hide form and show welcome message */
+      
       welcomeContainer.style.display = 'none';
       welcomeMessage.classList.add('show');
       greetingText.textContent = `Welcome, ${name}!`;
     });
+   */
+
+ /* New Form submission handler */
+const form = document.getElementById('welcome-form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent the default form submission
+
+  // Optional: you can still capture the values if you need them later
+  // const name = document.getElementById('name-input').value;
+  // const age = document.getElementById('age-input').value;
+
+  // Redirect to home.html
+  window.location.href = 'home.html';
+});
 
 /* Function to change the text based on the selected language */
 function changeLanguage(lang) {
@@ -557,5 +572,6 @@ document.querySelectorAll('.language-btn').forEach(button => {
 </body>
 
 </html>
+
 
 
