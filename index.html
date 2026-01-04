@@ -308,7 +308,7 @@
     </div>
     <h2 class="welcome-message-text" id="greeting-text">Welcome!</h2>
     <p class="welcome-message-subtext" id="greeting-subtext">Let's start learning math!</p>
-    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='home.html'">Let's Go!
+    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='./home.html'">Let's Go!
     </button>
   </div>
 
@@ -510,7 +510,7 @@
     const welcomeMessage = document.getElementById('welcome-message');
     const greetingText = document.getElementById('greeting-text');
 
-    form.addEventListener('submit-btn', (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       
       const name = document.getElementById('name-input').value;
@@ -557,4 +557,5 @@ document.querySelectorAll('.language-btn').forEach(button => {
 </body>
 
 </html>
+
 
