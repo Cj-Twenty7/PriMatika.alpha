@@ -1,7 +1,7 @@
 const defaultConfig = {
       background_color: '#1e40af',
       surface_color: '#60a5fa',
-      text_color: '#fff',
+      text_color: '#000',
       primary_action_color: '#1e40af',
       secondary_action_color: '#60a5fa',
       app_title: 'PriMatika',
@@ -33,13 +33,9 @@ const defaultConfig = {
     let inequalityQuestions = [];
     let currentInequalityIndex = 0;
     let inequalityScore = 0;
+    
+    let countingTries = 0;
 
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-      document.getElementById(pageId).classList.add('active');
-    }
   
     function applyQuizColors() {
       const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
@@ -53,7 +49,7 @@ const defaultConfig = {
         pt.style.color = bgColor;
       });
 
-      const numberButtons = document.querySelectorAll('number-btn');
+      const numberButtons = document.querySelectorAll('.number-btn');
       numberButtons.forEach(btn => {
         btn.style.background = surfaceColor;
         btn.style.color = bgColor;
@@ -93,7 +89,7 @@ const defaultConfig = {
         inequalitySymbol.style.color = bgColor;
       }
 
-      const inequalityButtons = document.querySelectorAll('inequality-btn');
+      const inequalityButtons = document.querySelectorAll('.inequality-btn');
       inequalityButtons.forEach(btn => {
         btn.style.background = surfaceColor;
         btn.style.color = bgColor;
@@ -131,13 +127,14 @@ const defaultConfig = {
     }
 
     // Navigation
+    
     function showPage(pageId) {
       document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
       });
       document.getElementById(pageId).classList.add('active');
     }
-
+    
     // Generate number table range buttons
     const numberTableRangeGrid = document.getElementById('number-table-range-grid');
     const icons = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
@@ -491,7 +488,7 @@ function showCountingScore() {
 
   applyQuizColors();
   showPage('counting-score-page');
-  showPage('countingDifficulty');
+  showPage('counting-difficulty-page');
 }
 
 // ========================
@@ -502,13 +499,13 @@ document.getElementById('counting-try-again-btn').addEventListener('click', () =
 });
 
 document.getElementById('counting-difficulty-btn').addEventListener('click', () => {
-  showPage(counting-btn-page);
+  showPage('counting-btn-page');
 });
 
 // ========================
 // UTILITY FUNCTIONS
 // ========================
-function generateSequence(start, end, difficulty) {
+/* function generateSequence(start, end, difficulty) {
   let length = (difficulty === 'easy') ? 5 : 10;
 
   const maxStart = end - (length - 1);
@@ -524,7 +521,7 @@ function shuffle(arr) {
     .map(a => ({ sort: Math.random(), value: a }))
     .sort((a, b) => a.sort - b.sort)
     .map(a => a.value);
-}
+} */
 
     // ===== SOLVING SECTION =====
 
@@ -631,7 +628,6 @@ function shuffle(arr) {
       feedbackMessage.style.display = 'none';
       progressText.textContent = `${currentSolvingIndex + 1} / ${solvingQuestions.length}`;
       
-      startSolving();
       applyQuizColors();
     }
 
@@ -709,7 +705,6 @@ function shuffle(arr) {
 
       applyQuizColors();
       showPage('solving-score-page');
-      showPage('solvingDifficulty');
     }
 
     document.getElementById('solving-try-again-btn').addEventListener('click', () => {
@@ -730,6 +725,7 @@ function shuffle(arr) {
         showNumberTable(start, end);
       }
     });
+
 
     function showNumberTable(start, end) {
       const numberDisplayList = document.getElementById('number-display-list');
@@ -762,7 +758,7 @@ function shuffle(arr) {
       applyQuizColors();
       showPage('number-table-display-page');
     }
-
+    
     // ===== INEQUALITY SECTION =====
 
     document.getElementById('inequality-easy-btn').addEventListener('click', () => {
@@ -898,7 +894,7 @@ function shuffle(arr) {
 
       applyQuizColors();
       showPage('inequality-score-page');
-      showPage('inequalityDifficulty');
+      showPage('inequality-difficulty-page');
     }
 
     document.getElementById('inequality-options').addEventListener('click', (e) => {

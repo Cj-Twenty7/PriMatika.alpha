@@ -14,7 +14,7 @@
   width: fit-content;
   max-width: 100%;
   overflow-x: hidden;
-  height: fit-content;
+  height: 100vh;
 }
 
     body {
@@ -35,7 +35,7 @@
 
     .app-wrapper {
       width: min-content(90%, 90%);
-      min-height: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       padding: clamp(12px, 3vw, 24px);
@@ -82,6 +82,11 @@
       margin: 0;
     }
 
+    
+    .emoji {
+      width: 70%;
+    }
+    
     .menu-container {
       display: flex;
       flex-direction: column;
@@ -137,7 +142,7 @@
     }
 
     .page.active {
-      display: flex;
+      display: block;
       flex-direction: column;
     }
 
@@ -635,15 +640,23 @@
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="counting-easy-btn"> 
-        <span class="operation-icon">😊</span> 
+        <span class="operation-icon">
+          <img src="ez.webp" type="image/webp"/ class="emoji">
+        </span> 
         <span id="c-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="counting-moderate-btn"> 
-        <span class="operation-icon">😐</span> 
+        <span class="operation-icon">
+          <img src="mod.webp" type="image/webp"/ class="emoji">
+        </span> 
+        
         <span id="c-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="counting-hard-btn"> 
-        <span class="operation-icon">😰</span> 
+        <span class="operation-icon">
+        <img src="hard.webp" type="image/webp"/ class="emoji">
+
+        </span> 
         <span id="c-hard-dif">Hard</span> 
       </button>
     </div>
@@ -699,15 +712,19 @@
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="solving-easy-btn"> 
-        <span class="operation-icon">😊</span> 
+        <span class="operation-icon">
+          <img src="ez.webp" type="image/webp"/ class="emoji" class="emoji">
+        </span> 
         <span id="s-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="solving-moderate-btn"> 
-        <span class="operation-icon">😐</span> 
+        <span class="operation-icon">
+           <img src="mod.webp" type="image/webp"/ class="emoji">
+        </span> 
         <span id="s-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="solving-hard-btn"> 
-        <span class="operation-icon">😰</span> 
+        <span class="operation-icon">         <img src="hard.webp" type="image/webp"/ class="emoji"></span> 
         <span id="s-hard-dif">Hard</span> </button>
     </div>
    </div>
@@ -805,15 +822,20 @@
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="inequality-easy-btn"> 
-        <span class="operation-icon">😊</span> 
+        <span class="operation-icon">
+          <img src="ez.webp" type="image/webp"/ class="emoji"></span> 
         <span id="i-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="inequality-moderate-btn"> 
-        <span class="operation-icon">😐</span> 
+        <span class="operation-icon">
+           <img src="mod.webp" type="image/webp"/ class="emoji">
+        </span> 
         <span id="i-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="inequality-hard-btn"> 
-        <span class="operation-icon">😰</span> 
+        <span class="operation-icon">
+        <img src="hard.webp" type="image/webp"/ class="emoji">
+        </span> 
         <span id="i-hard-dif">Hard</span> 
       </button>
     </div>
@@ -1213,7 +1235,7 @@ document.addEventListener('click', (e) => {
     }
 
 
-    function changeLanguage(lang) {
+  function changeLanguage(lang) {
 
   // Main App Title
   document.getElementById('app-title').textContent = translations[lang].app_title;
@@ -1269,7 +1291,7 @@ document.addEventListener('click', (e) => {
   updateTexts(lang);
   localStorage.setItem("lang", lang);
   changeLanguage(lang);
-}
+} 
 
 function updateTexts(lang) {
     document.getElementById("btn").innerText = translations[lang].button;

@@ -24,6 +24,8 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color:#ffffff;
       background-image: url("bg-home.jpg");
+      background-repeat: repeat;
+      background-size: contain;
     }
 
     html {
@@ -269,9 +271,9 @@
     <button onclick="changeLanguage('hil')" class="language-btn sfx-click" data-lang="hil">Hil</button>
   </div>
 
-  <!-- Settings Button
+  <!-- Settings Button 
   <button class="sfx-click settings-btn"> ⚙ </button>
-<!-- Settings Panel
+<!-- Settings Panel 
 <div id="settingsPanel" class="settings hidden">
   <h3 data-i18n="settings_title">Settings</h3>
 
@@ -296,9 +298,9 @@
   </label>
 
 
-</div> -->
+</div> 
 
-  </div>
+  </div> -->
 
   <div class="welcome-message" id="welcome-message">
     <div class="welcome-message-icon">
@@ -306,7 +308,7 @@
     </div>
     <h2 class="welcome-message-text" id="greeting-text">Welcome!</h2>
     <p class="welcome-message-subtext" id="greeting-subtext">Let's start learning math!</p>
-    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='home.html'">Let's Go!</a>
+    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='home.html'">Let's Go!
     </button>
   </div>
 
@@ -341,6 +343,8 @@
 
     if (settings.music) {
     bgMusic.play().catch(() => {}); }*/
+
+    const sound = document.getElementById('clickSound');
 
      document.addEventListener('click', (e) => {
      if (!e.target.closest('.sfx-click')) return;
@@ -527,7 +531,7 @@ function changeLanguage(lang) {
   document.getElementById('greeting-text').textContent = translations[lang].welcome_message;
   document.getElementById('greeting-subtext').textContent = translations[lang].greeting_subtext;
   document.getElementById('submit-btn').textContent = translations[lang].submit_btn;
-  document.querySelector('lez-go').textContent = translations[lang].les_go;
+  document.querySelector('lez-go').textContent = translations[lang].le_go;
 
   updateTexts(lang);
   localStorage.setItem("lang", lang);
@@ -553,4 +557,3 @@ document.querySelectorAll('.language-btn').forEach(button => {
 </body>
 
 </html>
-
