@@ -52,13 +52,14 @@
     .back-btn {
       position: absolute;
       left: 0;
-      top: clamp(15px, 3vw, 20px);
-      background: none;
+      top: clamp(5px, 3vw, 5px);
+      background-color: whitesmoke;
       border: none;
       font-size: clamp(24px, 5vw, 32px);
       cursor: pointer;
       padding: clamp(6px, 1vw, 8px);
       transition: transform 0.2s;
+      border-radius: clamp(12px, 2vw, 16px);
     }
 
     .back-btn:active {
@@ -607,6 +608,7 @@
     <img src="logo_noname.png" width="90%" height="87%" alt="PriMatika Logo">
     </div>
      <h1 class="title" id="app-title">PriMatika</h1>
+     
     </div>
     <div class="menu-container">
      <button class="menu-btn sfx-click" id="counting-btn"> 
@@ -636,25 +638,25 @@
    <div class="page" id="counting-difficulty-page">
     <div class="header">
       <button class="back-btn sfx-click" id="back-from-counting-difficulty">←Back</button>
-     <h1 class="title" id="counting-difficulty-page">Choose Difficulty</h1>
+     <h1 class="title" id="counting-difficulty-page"></h1>
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="counting-easy-btn"> 
         <span class="operation-icon">
-          <img src="ez.webp" type="image/webp"/ class="emoji">
+          <img src="ez.webp" type="image/webp" class="emoji">
         </span> 
         <span id="c-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="counting-moderate-btn"> 
         <span class="operation-icon">
-          <img src="mod.webp" type="image/webp"/ class="emoji">
+          <img src="mod.webp" type="image/webp" class="emoji">
         </span> 
         
         <span id="c-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="counting-hard-btn"> 
         <span class="operation-icon">
-        <img src="hard.webp" type="image/webp"/ class="emoji">
+        <img src="hard.webp" type="image/webp" class="emoji">
 
         </span> 
         <span id="c-hard-dif">Hard</span> 
@@ -708,23 +710,23 @@
   <div class="page" id="solving-difficulty-page">
     <div class="header">
       <button class="back-btn sfx-click" id="back-from-solving-difficulty">←Back</button>
-     <h1 class="title" id="choose-solve-dif">Choose Difficulty</h1>
+     <h1 class="title" id="choose-solve-dif"></h1>
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="solving-easy-btn"> 
         <span class="operation-icon">
-          <img src="ez.webp" type="image/webp"/ class="emoji" class="emoji">
+          <img src="ez.webp" type="image/webp" class="emoji" class="emoji">
         </span> 
         <span id="s-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="solving-moderate-btn"> 
         <span class="operation-icon">
-           <img src="mod.webp" type="image/webp"/ class="emoji">
+           <img src="mod.webp" type="image/webp" class="emoji">
         </span> 
         <span id="s-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="solving-hard-btn"> 
-        <span class="operation-icon">         <img src="hard.webp" type="image/webp"/ class="emoji"></span> 
+        <span class="operation-icon">         <img src="hard.webp" type="image/webp" class="emoji"></span> 
         <span id="s-hard-dif">Hard</span> </button>
     </div>
    </div>
@@ -781,7 +783,7 @@
       <div class="score-number" id="solving-score-number">
        5 / 5
       </div>
-      <div class="" id="s-">
+      <div class="score-message" id="s-score-message">
        Perfect! Amazing work!
       </div>
      </div>
@@ -818,23 +820,23 @@
    <div class="page" id="inequality-difficulty-page">
     <div class="header">
       <button class="back-btn sfx-click" id="back-from-inequality-difficulty">←Back</button>
-     <h1 class="title" id="choose-ineq-dif">Choose Difficulty</h1>
+     <h1 class="title" id="choose-ineq-dif"></h1>
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="inequality-easy-btn"> 
         <span class="operation-icon">
-          <img src="ez.webp" type="image/webp"/ class="emoji"></span> 
+          <img src="ez.webp" type="image/webp" class="emoji"></span> 
         <span id="i-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="inequality-moderate-btn"> 
         <span class="operation-icon">
-           <img src="mod.webp" type="image/webp"/ class="emoji">
+           <img src="mod.webp" type="image/webp" class="emoji">
         </span> 
         <span id="i-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="inequality-hard-btn"> 
         <span class="operation-icon">
-        <img src="hard.webp" type="image/webp"/ class="emoji">
+        <img src="hard.webp" type="image/webp" class="emoji">
         </span> 
         <span id="i-hard-dif">Hard</span> 
       </button>
@@ -997,9 +999,9 @@ document.addEventListener('click', (e) => {
     i_mod_dif: "Sakto Lang",
     s_mod_dif: "Sakto Lang",
     c_mod_dif: "Sakto Lang",
-    i_hard_dif: "Mahihirap",
-    s_hard_dif: "Mahihirap",
-    c_hard_dif: "Mahihirap",
+    i_hard_dif: "Mahirap",
+    s_hard_dif: "Mahirap",
+    c_hard_dif: "Mahirap",
     tap_in_order: "Pindutin nang Sunod-Sunod",
     tap_subtext: "Pindutin mula pinaka-mababa hanggang pinaka-mataas!",
     choose_ope: "Pili ng Operation",
@@ -1064,57 +1066,7 @@ document.addEventListener('click', (e) => {
   }
 }
 
-      // Number words for 1-100
-    const numberWords = {
-      en: {
-      1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
-      6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
-      11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen',
-      16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen', 20: 'twenty',
-      21: 'twenty-one', 22: 'twenty-two', 23: 'twenty-three', 24: 'twenty-four', 25: 'twenty-five',
-      26: 'twenty-six', 27: 'twenty-seven', 28: 'twenty-eight', 29: 'twenty-nine', 30: 'thirty',
-      31: 'thirty-one', 32: 'thirty-two', 33: 'thirty-three', 34: 'thirty-four', 35: 'thirty-five',
-      36: 'thirty-six', 37: 'thirty-seven', 38: 'thirty-eight', 39: 'thirty-nine', 40: 'forty',
-      41: 'forty-one', 42: 'forty-two', 43: 'forty-three', 44: 'forty-four', 45: 'forty-five',
-      46: 'forty-six', 47: 'forty-seven', 48: 'forty-eight', 49: 'forty-nine', 50: 'fifty',
-      51: 'fifty-one', 52: 'fifty-two', 53: 'fifty-three', 54: 'fifty-four', 55: 'fifty-five',
-      56: 'fifty-six', 57: 'fifty-seven', 58: 'fifty-eight', 59: 'fifty-nine', 60: 'sixty',
-      61: 'sixty-one', 62: 'sixty-two', 63: 'sixty-three', 64: 'sixty-four', 65: 'sixty-five',
-      66: 'sixty-six', 67: 'sixty-seven', 68: 'sixty-eight', 69: 'sixty-nine', 70: 'seventy',
-      71: 'seventy-one', 72: 'seventy-two', 73: 'seventy-three', 74: 'seventy-four', 75: 'seventy-five',
-      76: 'seventy-six', 77: 'seventy-seven', 78: 'seventy-eight', 79: 'seventy-nine', 80: 'eighty',
-      81: 'eighty-one', 82: 'eighty-two', 83: 'eighty-three', 84: 'eighty-four', 85: 'eighty-five',
-      86: 'eighty-six', 87: 'eighty-seven', 88: 'eighty-eight', 89: 'eighty-nine', 90: 'ninety',
-      91: 'ninety-one', 92: 'ninety-two', 93: 'ninety-three', 94: 'ninety-four', 95: 'ninety-five',
-      96: 'ninety-six', 97: 'ninety-seven', 98: 'ninety-eight', 99: 'ninety-nine', 100: 'one hundred'
-   },
-     fil: {
-     1: 'isa', 2: 'dalawa', 3: 'tatlo', 4: 'apat', 5: 'lima', 6: 'anim', 7: 'pito', 8: 'walo', 9: 'siyam', 10: 'sampu',
-     11: 'labing-isa', 12: 'labindalawa', 13: 'labintatlo', 14: 'labing-apat', 15: 'labing-lima', 16: 'labing-anim', 17: 'labimpito', 18: 'labing-walo', 19: 'labingsiyam', 20: 'dalawampu',
-      21: "dalawampu't isa", 22: "dalawampu't dalawa", 23: "dalawampu't tatlo", 24: "dalawampu't apat", 25: "dalawamput lima", 26: "dalawampu't anim", 27: "dalawampu't pito", 28: "dalawampu't walo", 29: "dalawampu't siyam",
-     30: 'tatlumpu', 31: "tatlumpu't isa", 32: "tatlumpu't dalawa", 33: "tatlumpu't tatlo", 34: "tatlump't apat", 35: "tatlumpu't lima", 36: "tatlumpu't anim", 37: "tatlumpu't pito", 38: "tatlumpu't walo", 39: "tatlumpu't siyam",
-     40: "apat napu", 41: "apatnapu't isa", 42:"apatnapu't dalawa", 43:"apatnapu't tatlo", 44:"apatnapu't apat", 45:"apatnapu't lima", 46:"apatnapu't anim", 47:"apatnapu't pito", 48:"apatnapu't walo", 49:"apatnapu't siyam",
-     50: 'limampu', 51: "limampu't isa", 52: "limampu't dalawa", 53: "limampu't tatlo", 54: "limampu't apat", 55: "limampu't lima", 56: "limampu't anim", 57: "limampu't pito", 58: "limampu't walo", 59: "limampu't siyam",
-     60: 'animnapu', 61: "animnapu't isa", 62: "animnapu't dalawa", 63: "animnapu't tatlo", 64: "animnapu't apat", 65: "animnapu't lima", 66: "animnapu't anim", 67: "animnapu'pito", 68: "animnapu't walo", 69: "animnapu't siyam",
-     70: 'pitumpu', 71: "pitompu't isa", 72: "pitompu't dalawa", 73: "pitompu't tatllo", 74: "pitompu't apat", 75:"pitompu't lima", 76:"pitompu't anim", 77: "pitompu't pito", 78: "pitompu't walo", 79: "pitompu't siyam",
-     80: 'walumpu', 81: "walumpu't isa", 82: "walumpu't dalawa", 83: "walumpu't tatlo", 84: "walumpu't apat", 85: "walumpu't lima", 86: "walumpu't anim", 87:"walumpu't pito", 88: "walumpu't walo", 89: "walumpu't siyam",
-     90: 'siyamnapu', 91: "siyamnaumpu't isa", 92: "siyamnaumpu't dalawa", 93: "siyamnaumpu't tatlo", 94: "siyamnaumpu't apat", 95: "siyamnaumpu't lima", 96: "siyamnaumpu't anim", 97: "siyamnaumpu't pito", 98: "siyamnaumpu't walo", 99: "siyamnaumpu't siyam",
-     100: 'isandaan'
-  },
-  hil: {
-    1: 'isa', 2: 'duha', 3: 'tatlo', 4: 'apat', 5: 'lima', 6: 'anum', 7: 'pito', 8: 'walo', 9: 'nueve', 10: 'diez',
-    11: 'onse', 12: 'dose', 13: 'trese', 14: 'katorse', 15: 'kinse', 16: 'disiseis', 17: 'disisiete', 18: 'diesy ocho', 19: 'diesy nueve', 20: 'bente',
-    21: 'bente-uno', 22: 'bente-dos', 23: 'bente-tres', 24: 'bente-kwatro', 25: 'bente-singko', 26: 'bente-sais', 27: 'bente-siete', 28: 'bente-otso', 29: 'bente-nueve',
-    30: 'treinta', 31: 'treinta-uno', 32: 'treinta-dos', 33: 'treinta-tres', 34: 'treinta-kuwatro', 35: 'treinta-singko', 36: 'treinta-sais', 37: 'treinta-siete', 38: 'treinta-ocho', 39: 'treinta-nueve',
-    40: 'kwarenta', 41: 'kwarenta-uno', 42: 'kwarenta-dos', 43: 'kwarenta-tres', 44: 'kwarenta-kwatro', 45: 'kwarenta-singko', 46: 'kwarenta-sais', 47: 'kwarenta-siete', 48: 'kwarenta-ocho', 49: 'kwarenta-nueve',
-    50: 'singkwenta', 51: 'singkwenta-uno', 52: 'singkwenta-dos', 53: 'singkwenta-tres', 54: 'singkwenta-kwatro', 55: 'singkwenta-singko', 56: 'singkwenta-sais', 57: 'singkwenta-siete', 58: 'singkwenta-ocho', 59: 'singkwenta-nueve',
-    60: 'sesenta', 61: 'sesenta-uno', 62: 'sesenta-dos', 63: 'sesenta-tres', 64: 'sesenta-kwatro', 65: 'sesenta-singko', 66: 'sesenta-sais', 67: 'sesenta-siete', 68: 'sesenta-ocho', 69: 'sesenta-nueve',
-    70: 'setenta', 71: 'setenta-uno', 72: 'setenta-dos', 73: 'setenta-tres', 74: 'setenta-kwatro', 75: 'setenta-singko', 76: 'setenta-sais', 77: 'setenta-siete', 78: 'setenta-ocho', 79: 'setenta-nueve',
-    80: 'ochenta', 81: 'ochenta-uno', 82: 'ochenta-dos', 83: 'ochenta-tres', 84: 'ochenta-kwatro', 85: 'ochenta-singko', 86: 'ochenta-sais', 87: 'ochenta-siete', 88: 'ochenta-ocho', 89: 'ochenta-nueve',
-    90: 'noventa', 91: 'noventa-uno', 92: 'noventa-dos', 93: 'noventa-tres', 94: 'noventa-kwatro', 95: 'noventa-singko', 96: 'noventa-sais', 97: 'noventa-siete', 98: 'noventa-ocho', 99: 'noventa-nueve',
-    100: 'syento'
-  }
-    }
+    
 
  function onConfigChange() {
       const appWrapper = document.querySelector('.app-wrapper');
@@ -1137,6 +1089,7 @@ document.addEventListener('click', (e) => {
       const tapinorder = document.getElementById('tap-in-order');
       const tapsubtext = document.getElementById('tap-subtext');
       const chooseope = document.getElementById('choose-ope');
+      const choosedif = document.getElementById('choose-dif');
       const solveit = document.getElementById('solve-it');      
       const solveequ = document.getElementById('solve-equ');      
       const chooserange = document.getElementById('choose-range');      
@@ -1231,7 +1184,9 @@ document.addEventListener('click', (e) => {
        countingbtn.textContent = defaultConfig.counting_difficulty_btn;
        solvingbtn.textContent = defaultConfig.solving_difficulty_btn;
        inequalitybtn.textContent = defaultConfig.inequality_difficulty_btn;
-       scoremessage.textContent = defaultConfig.score_message;
+       cscoremessage.textContent = defaultConfig.c_score_message;
+       sscoremessage.textContent = defaultConfig.s_score_message;
+       iscoremessage.textContent = defaultConfig.i_score_message;
     }
 
 
@@ -1250,8 +1205,8 @@ document.addEventListener('click', (e) => {
   document.getElementById('choose-solve-dif').textContent = translations[lang].choose_solve_dif;
   document.getElementById('choose-ineq-dif').textContent = translations[lang].choose_ineq_dif;
   document.getElementById('i-ez-dif').textContent = translations[lang].i_ez_dif;
-  document.getElementById('s_ez-dif').textContent = translations[lang].s_ez_dif;
-  document.getElementById('c_ez-dif').textContent = translations[lang].c_ez_dif;
+  document.getElementById('s-ez-dif').textContent = translations[lang].s_ez_dif;
+  document.getElementById('c-ez-dif').textContent = translations[lang].c_ez_dif;
   document.getElementById('i-mod-dif').textContent = translations[lang].i_mod_dif;
   document.getElementById('s-mod-dif').textContent = translations[lang].s_mod_dif;
   document.getElementById('c-mod-dif').textContent = translations[lang].c_mod_dif;
@@ -1285,19 +1240,23 @@ document.addEventListener('click', (e) => {
   document.getElementById('counting-difficulty-btn').textContent = translations[lang].counting_difficulty_btn;
   document.getElementById('solving-difficulty-btn').textContent = translations[lang].solving_difficulty_btn;
   document.getElementById('inequality-difficulty-btn').textContent = translations[lang].inequality_difficulty_btn;
-  document.getElementById('score-message').textContent = translations[lang].score_message;
+
+  document.getElementById('c-score-message').textContent = translations[lang].c_score_message;
+  document.getElementById('s-score-message').textContent = translations[lang].s_score_message;
+  document.getElementById('i-score-message').textContent = translations[lang].i_score_message;
 
   // Save language
-  updateTexts(lang);
-  localStorage.setItem("lang", lang);
+  
+  localStorage.setItem("language", lang);
+  window.currentLanguage = lang;
   changeLanguage(lang);
 } 
 
-function updateTexts(lang) {
+/*function updateTexts(lang) {
     document.getElementById("btn").innerText = translations[lang].button;
 }
 
-   /* document.querySelectorAll('.language-btn').forEach(button => {
+  * document.querySelectorAll('.language-btn').forEach(button => {
   button.addEventListener('click', function() {
     // Remove active class from all buttons and add it to the clicked button
     document.querySelectorAll('.language-btn').forEach(btn => btn.classList.remove('active'));

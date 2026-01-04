@@ -35,7 +35,59 @@ const defaultConfig = {
     let inequalityScore = 0;
     
     let countingTries = 0;
+    let currentLanguage = localStorage.getItem('language');
+    
 
+    const numberWords = {
+  en: {
+    1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+    6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
+    11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen",
+    16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty",
+    21: "twenty-one", 22: "twenty-two", 23: "twenty-three", 24: "twenty-four", 25: "twenty-five",
+    26: "twenty-six", 27: "twenty-seven", 28: "twenty-eight", 29: "twenty-nine", 30: "thirty",
+    31: "thirty-one", 32: "thirty-two", 33: "thirty-three", 34: "thirty-four", 35: "thirty-five",
+    36: "thirty-six", 37: "thirty-seven", 38: "thirty-eight", 39: "thirty-nine", 40: "forty",
+    41: "forty-one", 42: "forty-two", 43: "forty-three", 44: "forty-four", 45: "forty-five",
+    46: "forty-six", 47: "forty-seven", 48: "forty-eight", 49: "forty-nine", 50: "fifty",
+    51: "fifty-one", 52: "fifty-two", 53: "fifty-three", 54: "fifty-four", 55: "fifty-five",
+    56: "fifty-six", 57: "fifty-seven", 58: "fifty-eight", 59: "fifty-nine", 60: "sixty",
+    61: "sixty-one", 62: "sixty-two", 63: "sixty-three", 64: "sixty-four", 65: "sixty-five",
+    66: "sixty-six", 67: "sixty-seven", 68: "sixty-eight", 69: "sixty-nine", 70: "seventy",
+    71: "seventy-one", 72: "seventy-two", 73: "seventy-three", 74: "seventy-four", 75: "seventy-five",
+    76: "seventy-six", 77: "seventy-seven", 78: "seventy-eight", 79: "seventy-nine", 80: "eighty",
+    81: "eighty-one", 82: "eighty-two", 83: "eighty-three", 84: "eighty-four", 85: "eighty-five",
+    86: "eighty-six", 87: "eighty-seven", 88: "eighty-eight", 89: "eighty-nine", 90: "ninety",
+    91: "ninety-one", 92: "ninety-two", 93: "ninety-three", 94: "ninety-four", 95: "ninety-five",
+    96: "ninety-six", 97: "ninety-seven", 98: "ninety-eight", 99: "ninety-nine", 100: "one hundred"
+  },
+  fil: {
+    1: "isa", 2: "dalawa", 3: "tatlo", 4: "apat", 5: "lima", 6: "anim", 7: "pito", 8: "walo", 9: "siyam", 10: "sampu",
+    11: "labing-isa", 12: "labindalawa", 13: "labintatlo", 14: "labing-apat", 15: "labing-lima", 16: "labing-anim", 17: "labimpito", 18: "labing-walo", 19: "labingsiyam", 20: "dalawampu",
+    21: "dalawampu't isa", 22: "dalawampu't dalawa", 23: "dalawampu't tatlo", 24: "dalawampu't apat", 25: "dalawampu't lima", 26: "dalawampu't anim", 27: "dalawampu't pito", 28: "dalawampu't walo", 29: "dalawampu't siyam",
+    30: "tatlumpu", 31: "tatlumpu't isa", 32: "tatlumpu't dalawa", 33: "tatlumpu't tatlo", 34: "tatlumpu't apat", 35: "tatlumpu't lima", 36: "tatlumpu't anim", 37: "tatlumpu't pito", 38: "tatlumpu't walo", 39: "tatlumpu't siyam",
+    40: "apatnapu", 41: "apatnapu't isa", 42: "apatnapu't dalawa", 43: "apatnapu't tatlo", 44: "apatnapu't apat", 45: "apatnapu't lima", 46: "apatnapu't anim", 47: "apatnapu't pito", 48: "apatnapu't walo", 49: "apatnapu't siyam",
+    50: "limampu", 51: "limampu't isa", 52: "limampu't dalawa", 53: "limampu't tatlo", 54: "limampu't apat", 55: "limampu't lima", 56: "limampu't anim", 57: "limampu't pito", 58: "limampu't walo", 59: "limampu't siyam",
+    60: "animnapu", 61: "animnapu't isa", 62: "animnapu't dalawa", 63: "animnapu't tatlo", 64: "animnapu't apat", 65: "animnapu't lima", 66: "animnapu't anim", 67: "animnapu't pito", 68: "animnapu't walo", 69: "animnapu't siyam",
+    70: "pitumpu", 71: "pitumpu't isa", 72: "pitumpu't dalawa", 73: "pitumpu't tatlo", 74: "pitumpu't apat", 75: "pitumpu't lima", 76: "pitumpu't anim", 77: "pitumpu't pito", 78: "pitumpu't walo", 79: "pitumpu't siyam",
+    80: "walumpu", 81: "walumpu't isa", 82: "walumpu't dalawa", 83: "walumpu't tatlo", 84: "walumpu't apat", 85: "walumpu't lima", 86: "walumpu't anim", 87: "walumpu't pito", 88: "walumpu't walo", 89: "walumpu't siyam",
+    90: "siyamnapu", 91: "siyamnapu't isa", 92: "siyamnapu't dalawa", 93: "siyamnapu't tatlo", 94: "siyamnapu't apat", 95: "siyamnapu't lima", 96: "siyamnapu't anim", 97: "siyamnapu't pito", 98: "siyamnapu't walo", 99: "siyamnapu't siyam",
+    100: "isandaan"
+  },
+  hil: {
+    1: "isa", 2: "duha", 3: "tatlo", 4: "apat", 5: "lima", 6: "anum", 7: "pito", 8: "walo", 9: "nueve", 10: "diez",
+    11: "onse", 12: "dose", 13: "trese", 14: "katorse", 15: "kinse", 16: "disiseis", 17: "disisiete", 18: "disi-ocho", 19: "disi-nueve", 20: "bente",
+    21: "bente-uno", 22: "bente-dos", 23: "bente-tres", 24: "bente-kwatro", 25: "bente-singko", 26: "bente-sais", 27: "bente-siete", 28: "bente-otso", 29: "bente-nueve",
+    30: "treinta", 31: "treinta-uno", 32: "treinta-dos", 33: "treinta-tres", 34: "treinta-kuwatro", 35: "treinta-singko", 36: "treinta-sais", 37: "treinta-siete", 38: "treinta-ocho", 39: "treinta-nueve",
+    40: "kwarenta", 41: "kwarenta-uno", 42: "kwarenta-dos", 43: "kwarenta-tres", 44: "kwarenta-kwatro", 45: "kwarenta-singko", 46: "kwarenta-sais", 47: "kwarenta-siete", 48: "kwarenta-ocho", 49: "kwarenta-nueve",
+    50: "singkwenta", 51: "singkwenta-uno", 52: "singkwenta-dos", 53: "singkwenta-tres", 54: "singkwenta-kwatro", 55: "singkwenta-singko", 56: "singkwenta-sais", 57: "singkwenta-siete", 58: "singkwenta-ocho", 59: "singkwenta-nueve",
+    60: "sesenta", 61: "sesenta-uno", 62: "sesenta-dos", 63: "sesenta-tres", 64: "sesenta-kwatro", 65: "sesenta-singko", 66: "sesenta-sais", 67: "sesenta-siete", 68: "sesenta-ocho", 69: "sesenta-nueve",
+    70: "setenta", 71: "setenta-uno", 72: "setenta-dos", 73: "setenta-tres", 74: "setenta-kwatro", 75: "setenta-singko", 76: "setenta-sais", 77: "setenta-siete", 78: "setenta-ocho", 79: "setenta-nueve",
+    80: "ochenta", 81: "ochenta-uno", 82: "ochenta-dos", 83: "ochenta-tres", 84: "ochenta-kwatro", 85: "ochenta-singko", 86: "ochenta-sais", 87: "ochenta-siete", 88: "ochenta-ocho", 89: "ochenta-nueve",
+    90: "noventa", 91: "noventa-uno", 92: "noventa-dos", 93: "noventa-tres", 94: "noventa-kwatro", 95: "noventa-singko", 96: "noventa-sais", 97: "noventa-siete", 98: "noventa-ocho", 99: "noventa-nueve",
+    100: "syento"
+  }
+};
   
     function applyQuizColors() {
       const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
@@ -134,6 +186,9 @@ const defaultConfig = {
       });
       document.getElementById(pageId).classList.add('active');
     }
+
+    //Change language for numberwords
+    
     
     // Generate number table range buttons
     const numberTableRangeGrid = document.getElementById('number-table-range-grid');
@@ -152,6 +207,16 @@ const defaultConfig = {
       btn.dataset.end = end;
       numberTableRangeGrid.appendChild(btn);
     }
+
+    // After the for loop that creates buttons
+numberTableRangeGrid.addEventListener('click', (event) => {
+  if (event.target.closest('button')) {
+    const btn = event.target.closest('button');
+    const start = parseInt(btn.dataset.start);
+    const end = parseInt(btn.dataset.end);
+    showNumberTable(start, end);
+  }
+});
 
   /*  const settings = {
   music: JSON.parse(localStorage.getItem('music')) ?? true,
@@ -717,26 +782,17 @@ function shuffle(arr) {
 
     // ===== NUMBER TABLE SECTION =====
 
-    numberTableRangeGrid.addEventListener('click', (e) => {
-      const rangeBtn = e.target.closest('.operation-btn');
-      if (rangeBtn) {
-        const start = parseInt(rangeBtn.dataset.start);
-        const end = parseInt(rangeBtn.dataset.end);
-        showNumberTable(start, end);
-      }
-    });
-
 
     function showNumberTable(start, end) {
       const numberDisplayList = document.getElementById('number-display-list');
       const numberDisplayTitle = document.getElementById('number-display-title');
+      const words = (numberWords[currentLanguage] && numberWords[currentLanguage].numberWords) || numberWords.en || numberWords.fil || numberWords.hil;
+ 
       
       numberDisplayTitle.textContent = `${start}-${end}`;
       numberDisplayList.innerHTML = '';
       
-      const numberWords =
-      (translations[currentLanguage] && translations[currentLanguage].numbers) || translations.en.numbers;
-
+      
       for (let num = start; num <= end; num++) {
         const card = document.createElement('div');
         card.className = 'number-display-card';
@@ -747,17 +803,31 @@ function shuffle(arr) {
         
         const wordLarge = document.createElement('div');
         wordLarge.className = 'word-large';
-        wordLarge.textContent = numberWords[num];
+        wordLarge.textContent = words[num];
         
         card.appendChild(numberLarge);
         card.appendChild(wordLarge);
         
         numberDisplayList.appendChild(card);
+        applyQuizColors();
+        showPage('number-table-display-page');
       }
       
       applyQuizColors();
       showPage('number-table-display-page');
     }
+
+        numberTableRangeGrid.addEventListener('click', (e) => {
+      const rangeBtn = e.target.closest('.operation-btn');
+      if (rangeBtn) {
+        const start = parseInt(rangeBtn.dataset.start);
+        const end = parseInt(rangeBtn.dataset.end);
+        showNumberTable(start, end);
+      }
+    });
+    
+    //Fallback
+    
     
     // ===== INEQUALITY SECTION =====
 
