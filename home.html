@@ -1100,19 +1100,29 @@ document.addEventListener('click', (e) => {
     90: "siyamnapu", 91: "siyamnapu't isa", 92: "siyamnapu't dalawa", 93: "siyamnapu't tatlo", 94: "siyamnapu't apat", 95: "siyamnapu't lima", 96: "siyamnapu't anim", 97: "siyamnapu't pito", 98: "siyamnapu't walo", 99: "siyamnapu't siyam",
     100: "isandaan"
   },
-  hil: {
-    1: "isa", 2: "duha", 3: "tatlo", 4: "apat", 5: "lima", 6: "anum", 7: "pito", 8: "walo", 9: "nueve", 10: "diez",
-    11: "onse", 12: "dose", 13: "trese", 14: "katorse", 15: "kinse", 16: "disiseis", 17: "disisiete", 18: "disi-ocho", 19: "disi-nueve", 20: "bente",
-    21: "bente-uno", 22: "bente-dos", 23: "bente-tres", 24: "bente-kwatro", 25: "bente-singko", 26: "bente-sais", 27: "bente-siete", 28: "bente-otso", 29: "bente-nueve",
-    30: "treinta", 31: "treinta-uno", 32: "treinta-dos", 33: "treinta-tres", 34: "treinta-kuwatro", 35: "treinta-singko", 36: "treinta-sais", 37: "treinta-siete", 38: "treinta-ocho", 39: "treinta-nueve",
-    40: "kwarenta", 41: "kwarenta-uno", 42: "kwarenta-dos", 43: "kwarenta-tres", 44: "kwarenta-kwatro", 45: "kwarenta-singko", 46: "kwarenta-sais", 47: "kwarenta-siete", 48: "kwarenta-ocho", 49: "kwarenta-nueve",
-    50: "singkwenta", 51: "singkwenta-uno", 52: "singkwenta-dos", 53: "singkwenta-tres", 54: "singkwenta-kwatro", 55: "singkwenta-singko", 56: "singkwenta-sais", 57: "singkwenta-siete", 58: "singkwenta-ocho", 59: "singkwenta-nueve",
-    60: "sesenta", 61: "sesenta-uno", 62: "sesenta-dos", 63: "sesenta-tres", 64: "sesenta-kwatro", 65: "sesenta-singko", 66: "sesenta-sais", 67: "sesenta-siete", 68: "sesenta-ocho", 69: "sesenta-nueve",
-    70: "setenta", 71: "setenta-uno", 72: "setenta-dos", 73: "setenta-tres", 74: "setenta-kwatro", 75: "setenta-singko", 76: "setenta-sais", 77: "setenta-siete", 78: "setenta-ocho", 79: "setenta-nueve",
-    80: "ochenta", 81: "ochenta-uno", 82: "ochenta-dos", 83: "ochenta-tres", 84: "ochenta-kwatro", 85: "ochenta-singko", 86: "ochenta-sais", 87: "ochenta-siete", 88: "ochenta-ocho", 89: "ochenta-nueve",
-    90: "noventa", 91: "noventa-uno", 92: "noventa-dos", 93: "noventa-tres", 94: "noventa-kwatro", 95: "noventa-singko", 96: "noventa-sais", 97: "noventa-siete", 98: "noventa-ocho", 99: "noventa-nueve",
-    100: "syento"
+  hil: (() => {
+  const obj = {};
+  const units = ["", "isa", "duha", "tatlo", "apat", "lima", "unom", "pitu", "walo", "siyam"];
+  const teens = ["napulo", "napulugisa", "napulugduha", "napulugtulo", "napulugapat", "napuluglima", "napulugunum", "napulugpitu", "napulugwalo", "napulugsiyam"];
+  const tens = ["", "", "duha ka napulo", "tatlo ka napulo", "apat ka napulo", "lima ka napulo", "unom ka napulo", "pitu ka napulo", "walo ka napulo", "siyam ka napulo"];
+
+  // 1-10
+  for (let i = 1; i <= 10; i++) obj[i] = i === 10 ? "napulo" : units[i];
+
+  // 11-19
+  for (let i = 1; i <= 9; i++) obj[10 + i] = teens[i];
+
+  // 20-99
+  for (let t = 2; t <= 9; t++) {
+    obj[t * 10] = tens[t];
+    for (let u = 1; u <= 9; u++) obj[t * 10 + u] = `${tens[t]} ug ${units[u]}`;
   }
+
+  // 100
+  obj[100] = "isa ka gatus";
+
+  return obj;
+})()
 };    
 
  function onConfigChange() {
@@ -1394,3 +1404,4 @@ function updateTexts(lang) {
   <script src="script.js"></script>
 </body>
 </html>
+
