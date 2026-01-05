@@ -41,21 +41,25 @@ const defaultConfig = {
     let currentLanguage = localStorage.getItem('lang') || 'en';
     
     let languageSwitchTimeout;
-function updateCurrentLanguage(lang) {
-  clearTimeout(languageSwitchTimeout);
-  languageSwitchTimeout = setTimeout(() => {
-    currentLanguage = lang;
-    // ... rest of the function
-  }, 100);  // 100ms debounce
-}
 
     function updateCurrentLanguage(lang) {
-  currentLanguage = lang;
-  // If we're currently on the number table display page, re-render it with the new language
-  if (document.getElementById('number-table-display-page').classList.contains('active') && currentTableStart !== null && currentTableEnd !== null) {
-    showNumberTable(currentTableStart, currentTableEnd);
+      currentLanguage = lang;
+      clearTimeout(languageSwitchTimeout);
+  languageSwitchTimeout = setTimeout(() => {
+    currentLanguage = lang;
+
+      // If we're currently on the number table display page, re-render it with the new language
+      if (document.getElementById('number-table-display-page').classList.contains('active') && currentTableStart !== null && currentTableEnd !== null) {
+        showNumberTable(currentTableStart, currentTableEnd);
+      }
+      if (document.getElementById('counting-difficulty-page').classList.contains('active')) {
+        showCountingDifficultyPage();
+      } else if (document.getElementById('solving-difficulty-page').classList.contains('active')) {
+        showSolvingDifficultyPage();
+      }
+    }, 100);
   }
-}
+
 
     function applyQuizColors() {
       const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
