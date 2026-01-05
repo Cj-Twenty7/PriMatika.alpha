@@ -261,7 +261,7 @@
         <label for="age-input" class="form-label" id="age-label">How old are you?</label>
         <input type="number" id="age-input" class="form-input" min="0" max="120" required>
       </div>
-      <button type="submit" class="submit-btn sfx-click" id="submit-btn">Get Started!</button>
+      <button type="submit" class="submit-btn sfx-click" id="submit-btn" onclick="location.href='home.html'">Get Started!</button>
       
     </form>
       <!-- Language Selector -->
@@ -308,7 +308,7 @@
     </div>
     <h2 class="welcome-message-text" id="greeting-text">Welcome!</h2>
     <p class="welcome-message-subtext" id="greeting-subtext">Let's start learning math!</p>
-    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='./home.html'">Let's Go!
+    <button type="submit" class="submit-btn sfx-click" id="lez-go" onclick="location.href='home.html'">Let's Go!
     </button>
   </div>
 
@@ -504,7 +504,7 @@
       });
     }
 
-    /* Form submission handler (Old One)
+    /* Form submission handler */
     const form = document.getElementById('welcome-form');
     const welcomeContainer = document.getElementById('welcome-container');
     const welcomeMessage = document.getElementById('welcome-message');
@@ -516,26 +516,11 @@
       const name = document.getElementById('name-input').value;
       const age = document.getElementById('age-input').value;
 
-      
+      /* Hide form and show welcome message */
       welcomeContainer.style.display = 'none';
       welcomeMessage.classList.add('show');
       greetingText.textContent = `Welcome, ${name}!`;
     });
-   */
-
- /* New Form submission handler */
-const form = document.getElementById('welcome-form');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent the default form submission
-
-  // Optional: you can still capture the values if you need them later
-  // const name = document.getElementById('name-input').value;
-  // const age = document.getElementById('age-input').value;
-
-  // Redirect to home.html
-  window.location.href = 'home.html';
-});
 
 /* Function to change the text based on the selected language */
 function changeLanguage(lang) {
@@ -546,15 +531,16 @@ function changeLanguage(lang) {
   document.getElementById('greeting-text').textContent = translations[lang].welcome_message;
   document.getElementById('greeting-subtext').textContent = translations[lang].greeting_subtext;
   document.getElementById('submit-btn').textContent = translations[lang].submit_btn;
-  document.querySelector('lez-go').textContent = translations[lang].le_go;
+  document.getElementById('lez-go').textContent = translations[lang].lez_go;
 
-  updateTexts(lang);
+ 
   localStorage.setItem("lang", lang);
 }
 
-function updateTexts(lang) {
+/*function updateTexts(lang) {
     document.getElementById("btn").innerText = translations[lang].button;
-}
+     updateTexts(lang);
+}*/
 
 /* Event listeners for language selection buttons */
 document.querySelectorAll('.language-btn').forEach(button => {
@@ -562,6 +548,7 @@ document.querySelectorAll('.language-btn').forEach(button => {
     // Remove active class from all buttons and add it to the clicked button
     document.querySelectorAll('.language-btn').forEach(btn => btn.classList.remove('active'));
     this.classList.add('active'); 
+    const selectedLang = this.getAttribute('data-lang');
     changeLanguage(selectedLang);
   });
 });
@@ -572,6 +559,3 @@ document.querySelectorAll('.language-btn').forEach(button => {
 </body>
 
 </html>
-
-
-
