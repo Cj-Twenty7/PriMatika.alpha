@@ -24,7 +24,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       height: 100%;
       width: 100%;
-      background-image: url("bg2.jpg");
+      background-image: url("bg2.jpg") !important; 
       background-size: cover;
     }
 
@@ -57,10 +57,10 @@
       flex-shrink: 0;
     }
 
-    .back-btn, app-title {
+    .back-btn {
       position: absolute;
-      left: 0;
-      top: clamp(5px, 3vw, 5px);
+      left: clamp(10px, 3vw, 20px);
+      bottom: clamp(10px, 3vw, 20px);
       background-color: #f5f5f5;
       border: none;
       font-size: clamp(24px, 5vw, 32px);
@@ -68,6 +68,8 @@
       padding: clamp(6px, 1vw, 8px);
       transition: transform 0.2s;
       border-radius: clamp(12px, 2vw, 16px);
+      opacity: 0.9;
+      z-index: 1000;
     }
 
     .back-btn:active {
@@ -91,7 +93,14 @@
       margin: 0;
     }
 
-    
+    .title, .h1 {
+      background-color: rgb(228, 220, 117);
+      border-radius: clamp(8px, 2vw, 10px);
+      opacity: 0.9;
+      width: fit-content;
+      margin-left: 38%;
+      padding: 7px;
+    }
     .emoji {
       width: 70%;
     }
@@ -126,6 +135,7 @@
       transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       text-align: left;
+      opacity: 0.9;
       background-image: url('gifs/hashire.gif');
       background-size: auto 100%;  /* Scales height to button height, width auto for aspect ratio */
       background-position: 0% 50%;  /* Starts at left center */
@@ -164,23 +174,25 @@
 
     .page {
       display: none;
-      flex: 1;  /* Added: Makes the page fill available height */
+      flex: 3;  /* Added: Makes the page fill available height */
       flex-direction: column;
       overflow: hidden;
     }
 
     .page.active {
       display: flex;
+      width: 100%;
       flex-direction: column;
     }
 
     .operation-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 35vw, 200px), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(clamp(100px, 25vw, 130px), 1fr));
       gap: clamp(12px, 2vw, 16px);
-      max-width: 500px;
+      max-width: 800px;
       margin: 0 auto;
       width: 100%;
+      justify-content: center;
     }
 
     .operation-btn {
@@ -196,6 +208,7 @@
       flex-direction: column;
       align-items: center;
       gap: clamp(8px, 2vw, 12px);
+      opacity: 0.9;
     }
 
     .operation-btn:active {
@@ -218,9 +231,12 @@
     }
 
     .quiz-instruction {
-      font-size: clamp(14px, 3vw, 18px);
+      font-size: clamp(24px, 13vw, 28px);
       margin: 0 0 clamp(16px, 3vw, 24px) 0;
       text-align: center;
+      background-color: rgb(228, 220, 117);
+      border-radius: clamp(10px, 2vw, 12px);
+      opacity: 0.9;
     }
 
     .progress-container {
@@ -254,6 +270,7 @@
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0.9;
     }
 
     .number-btn:active {
@@ -393,6 +410,7 @@
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0.9;
     }
 
     .check-btn:active {
@@ -457,6 +475,7 @@
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0.9;
     }
 
     .try-again-btn:active {
@@ -549,6 +568,7 @@
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0.9;
     }
 
     .inequality-btn:active {
@@ -593,6 +613,7 @@
       background: rgba(255, 255, 255, 0.2);
       color: #ffffff;
       min-width: clamp(40px, 8vw, 50px);
+      opacity: 0.9;
     }
 
     .language-btn:hover {
@@ -666,21 +687,21 @@
         <span class="operation-icon">
           <img src="ez.webp" type="image/webp" class="emoji">
         </span> 
-        <span id="c-ez-dif">Easy</span> 
+        <span class="dif" id="c-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="counting-moderate-btn"> 
         <span class="operation-icon">
           <img src="mod.webp" type="image/webp" class="emoji">
         </span> 
         
-        <span id="c-mod-dif">Moderate</span> 
+        <span class="dif" id="c-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="counting-hard-btn"> 
         <span class="operation-icon">
         <img src="hard.webp" type="image/webp" class="emoji">
 
         </span> 
-        <span id="c-hard-dif">Hard</span> 
+        <span class="dif" id="c-hard-dif">Hard</span> 
       </button>
     </div>
    </div>
@@ -711,13 +732,13 @@
     <div class="quiz-container">
      <div class="score-display">
       <div class="score-icon" id="counting-score-icon">
-       🎉
+       
       </div>
       <div class="score-number" id="counting-score-number">
-       5 / 5
+    
       </div>
-      <div class="score-message" id="c-score-message">
-       Perfect! Amazing work!
+      <div class="score-message" id="counting-score-message">
+     
       </div>
      </div>
      <div class="score-actions">
@@ -738,17 +759,17 @@
         <span class="operation-icon">
           <img src="ez.webp" type="image/webp" class="emoji" class="emoji">
         </span> 
-        <span id="s-ez-dif">Easy</span> 
+        <span class="dif" id="s-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="solving-moderate-btn"> 
         <span class="operation-icon">
            <img src="mod.webp" type="image/webp" class="emoji">
         </span> 
-        <span id="s-mod-dif">Moderate</span> 
+        <span class="dif" id="s-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="solving-hard-btn"> 
         <span class="operation-icon">         <img src="hard.webp" type="image/webp" class="emoji"></span> 
-        <span id="s-hard-dif">Hard</span> </button>
+        <span class="dif" id="s-hard-dif">Hard</span> </button>
     </div>
    </div>
    
@@ -799,13 +820,13 @@
     <div class="quiz-container">
      <div class="score-display">
       <div class="score-icon" id="solving-score-icon">
-       🎉
+       
       </div>
       <div class="score-number" id="solving-score-number">
-       5 / 5
+       
       </div>
-      <div class="score-message" id="s-score-message">
-       Perfect! Amazing work!
+      <div class="score-message" id="solving-score-message">
+  
       </div>
      </div>
      <div class="score-actions">
@@ -847,19 +868,19 @@
       <button class="operation-btn sfx-click" id="inequality-easy-btn"> 
         <span class="operation-icon">
           <img src="ez.webp" type="image/webp" class="emoji"></span> 
-        <span id="i-ez-dif">Easy</span> 
+        <span class="dif" id="i-ez-dif">Easy</span> 
       </button> 
       <button class="operation-btn sfx-click" id="inequality-moderate-btn"> 
         <span class="operation-icon">
            <img src="mod.webp" type="image/webp" class="emoji">
         </span> 
-        <span id="i-mod-dif">Moderate</span> 
+        <span class="dif" id="i-mod-dif">Moderate</span> 
       </button> 
       <button class="operation-btn sfx-click" id="inequality-hard-btn"> 
         <span class="operation-icon">
         <img src="hard.webp" type="image/webp" class="emoji">
         </span> 
-        <span id="i-hard-dif">Hard</span> 
+        <span class="dif" id="i-hard-dif">Hard</span> 
       </button>
     </div>
    </div>
@@ -905,13 +926,13 @@
     <div class="quiz-container">
      <div class="score-display">
       <div class="score-icon" id="inequality-score-icon">
-       🎉
+       
       </div>
       <div class="score-number" id="inequality-score-number">
-       10 / 10
+       
       </div>
-      <div class="score-message" id="i-score-message">
-       Perfect! Amazing work!
+      <div class="score-message" id="inequality-score-message">
+       
       </div>
      </div>
      <div class="score-actions">
@@ -936,8 +957,12 @@
         <source src="music.ogg" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
+
+
+
   <script>
 
+    
     const sound = document.getElementById('clickSound');
 
 document.addEventListener('click', (e) => {
@@ -1003,9 +1028,11 @@ document.addEventListener('click', (e) => {
     counting_difficulty_btn: "Change Difficulty",
     solving_difficulty_btn: "Change Difficulty",
     inequality_difficulty_btn:"Change Difficulty",
-    c_score_message: "Perfect! Amazing work!",
-    s_score_message: "Perfect! Amazing work!",
-    i_score_message: "Perfect! Amazing work!",
+    score_message_100: 'Perfect! Amazing work!',
+    score_message_80: 'Great job! Keep it up!',
+    score_message_60: 'Good effort! Practice more!',
+    score_message_40: 'Nice try! Keep practicing!',
+    score_message_below: 'Keep trying! You can do it!',
   },
   fil: {
     app_title: "PriMatika",
@@ -1042,9 +1069,11 @@ document.addEventListener('click', (e) => {
     counting_difficulty_btn: "Palitan ang Level", 
     solving_difficulty_btn: "Palitan ang Level", 
     inequality_difficulty_btn: "Palitan ang Level",
-    c_score_message: "Ang galing! Perfect ka!",
-    s_score_message: "Ang galing! Perfect ka!",
-    i_score_message: "Ang galing! Perfect ka!",
+    score_message_100: 'Perpekto! Kamangha-mangha!',
+    score_message_80: 'Ang galing! Ipagpatuloy mo!',
+    score_message_60: 'Magandang pagsisikap! Magpraktis pa!',
+    score_message_40: 'Magandang subok! Magpatuloy sa pagpraktis!',
+    score_message_below: 'Ituloy mo! Kaya mo yan!',
   },
   hil: {
     app_title: "PriMatika",
@@ -1081,9 +1110,11 @@ document.addEventListener('click', (e) => {
     counting_difficulty_btn: "Islan ang Level", 
     solving_difficulty_btn: "Islan ang Level",
     inequality_difficulty_btn: "Islan ang Level",
-    c_score_message: "Kasagad! Perfect gid!",
-    s_score_message: "Kasagad! Perfect gid!",
-    i_score_message: "Kasagad! Perfect gid!",
+    score_message_100: 'Perpekto! Kasagad!',
+    score_message_80: 'Ayos! Ipadayon!',
+    score_message_60: 'Maayo nga paningkamot! Magpraktis pa!',
+    score_message_40: 'Maayo nga subok! Magpadayon sa pagpraktis!',
+    score_message_below: 'Padayon! Kaya mo na!',
   }
 }
 
@@ -1185,9 +1216,12 @@ document.addEventListener('click', (e) => {
       const countingbtn = document.getElementById('counting-difficulty-btn');
       const solvingbtn = document.getElementById('solving-difficulty-btn');
       const inequalitybtn = document.getElementById('inequality-difficulty-btn');
-      const cscoremessage = document.getElementById('c-score-message');
-      const sscoremessage = document.getElementById('s-score-message');
-      const iscoremessage = document.getElementById('i-score-message');
+      const scoremessage100 = document.getElementById('score-message-100');
+      const scoremessage80 = document.getElementById('scoremessage80');
+      const scoremessage60 = document.getElementById('scoremessage60');
+      const scoremessage40 = document.getElementById('scoremessage40');
+      const scoremessage20 = document.getElementById('scoremessage20');
+      const scoremessagebelow = document.getElementById('scoremessagebelow');
 
       const appIcon = document.getElementById('app-icon');
       const mainTitle = document.getElementById('main-title');
@@ -1198,11 +1232,11 @@ document.addEventListener('click', (e) => {
       const bgColor = defaultConfig.background_color;
       const surfaceColor = defaultConfig.surface_color;
       const textColor = defaultConfig.text_color;
-      //const primaryColor = defaultConfig.primary_action_color;
-      //const secondaryColor = defaultConfig.secondary_action_color;
+      const primaryColor = defaultConfig.primary_action_color;
+      const secondaryColor = defaultConfig.secondary_action_color;
 
-      appWrapper.style.background = bgColor;
-      appIcon.style.background = surfaceColor;
+      //appWrapper.style.background = bgColor;
+      //appIcon.style.background = surfaceColor;
       mainTitle.style.color = textColor;
 
       const allTitles = document.querySelectorAll('.t');
@@ -1265,78 +1299,16 @@ document.addEventListener('click', (e) => {
        countingbtn.textContent = defaultConfig.counting_difficulty_btn;
        solvingbtn.textContent = defaultConfig.solving_difficulty_btn;
        inequalitybtn.textContent = defaultConfig.inequality_difficulty_btn;
-       cscoremessage.textContent = defaultConfig.c_score_message;
-       sscoremessage.textContent = defaultConfig.s_score_message;
-       iscoremessage.textContent = defaultConfig.i_score_message;
+       scoremessage100.textContent = defaultConfig.score_message100;
+       scoremessage80.textContent = defaultConfig.score_message80;
+       scoremessage60.textContent = defaultConfig.score_message60;
+       scoremessage40.textContent = defaultConfig.score_message40;
+       scoremessage20.textContent = defaultConfig.score_message20;
+       scoremessagebelow.textContent = defaultConfig.score_message_below;
     } 
 
-
-  /* function changeLanguage(lang) {
-
-  document.getElementById('app-title').textContent = translations[lang].app_title;
-
-  document.getElementById('count-btn-text').textContent = translations[lang].count_btn_text;
-  document.getElementById('solve-btn-text').textContent = translations[lang].solve_btn_text;
-  document.getElementById('num-btn-text').textContent = translations[lang].num_btn_text;
-  document.getElementById('ineq-btn-text').textContent = translations[lang].ineq_btn_text;
-
- 
-  document.getElementById('choose-solve-dif').textContent = translations[lang].choose_solve_dif;
-  document.getElementById('choose-ineq-dif').textContent = translations[lang].choose_ineq_dif;
-  document.getElementById('i-ez-dif').textContent = translations[lang].i_ez_dif;
-  document.getElementById('s-ez-dif').textContent = translations[lang].s_ez_dif;
-  document.getElementById('c-ez-dif').textContent = translations[lang].c_ez_dif;
-  document.getElementById('i-mod-dif').textContent = translations[lang].i_mod_dif;
-  document.getElementById('s-mod-dif').textContent = translations[lang].s_mod_dif;
-  document.getElementById('c-mod-dif').textContent = translations[lang].c_mod_dif;
-  document.getElementById('i-hard-dif').textContent = translations[lang].i_hard_dif;
-  document.getElementById('s-hard-dif').textContent = translations[lang].s_hard_dif;
-  document.getElementById('c-hard-dif').textContent = translations[lang].c_hard_dif;
-
-
-  document.getElementById('tap-in-order').textContent = translations[lang].tap_in_order;
-  document.getElementById('tap-subtext').textContent = translations[lang].tap_subtext;
-
-
-  document.getElementById('choose-ope').textContent = translations[lang].choose_ope;
-  document.getElementById('solve-it').textContent = translations[lang].solve_it;
-  document.getElementById('solve-equ').textContent = translations[lang].solve_equ;
-
-
-  document.getElementById('choose-range').textContent = translations[lang].choose_range;
-  document.getElementById('number-display-title').textContent = translations[lang].number_display_title;
-
- 
-  document.getElementById('comp-num').textContent = translations[lang].comp_num;
-  document.getElementById('choose-comp').textContent = translations[lang].choose_comp;
-  document.getElementById('check-btn').textContent = translations[lang].check_btn;
-
- 
-  document.getElementById('ur-score').textContent = translations[lang].ur_score;
-  document.getElementById('counting-try-again-btn').textContent = translations[lang].counting_try_again_btn;
-  document.getElementById('solving-try-again-btn').textContent = translations[lang].solving_try_again_btn;
-  document.getElementById('inequality-try-again-btn').textContent = translations[lang].inequality_try_again_btn;
-  document.getElementById('counting-difficulty-btn').textContent = translations[lang].counting_difficulty_btn;
-  document.getElementById('solving-difficulty-btn').textContent = translations[lang].solving_difficulty_btn;
-  document.getElementById('inequality-difficulty-btn').textContent = translations[lang].inequality_difficulty_btn;
-
-  document.getElementById('c-score-message').textContent = translations[lang].c_score_message;
-  document.getElementById('s-score-message').textContent = translations[lang].s_score_message;
-  document.getElementById('i-score-message').textContent = translations[lang].i_score_message;
-
-  
-  localStorage.setItem("language", lang);
-  if (typeof updateCurrentLanguage === 'function') {
-  updateCurrentLanguage(lang);
-}
-  if (window.currentLanguage !== undefined) {
-  window.currentLanguage = lang; 
-}
-  changeLanguage(lang);
-} */
-
     function changeLanguage(lang) {
-  // Define a map of element IDs to translation keys for batch updating
+
   const elementsToUpdate = {
     'app-title': 'app_title',
     'count-btn-text': 'count_btn_text',
@@ -1372,9 +1344,12 @@ document.addEventListener('click', (e) => {
     'counting-difficulty-btn': 'counting_difficulty_btn',
     'solving-difficulty-btn': 'solving_difficulty_btn',
     'inequality-difficulty-btn': 'inequality_difficulty_btn',
-    'c-score-message': 'c_score_message',
-    's-score-message': 's_score_message',
-    'i-score-message': 'i_score_message'
+    'score-message-100': 'score_message_100',
+    'score-message-80': 'score_message_80',
+    'score-message-60': 'score_message_60',
+    'score-message-40': 'score_message_40',
+    'score-message-20': 'score_message_20',
+    'score-message-below': 'score_message_below',
   };
 
   // Batch update all elements at once
@@ -1382,6 +1357,51 @@ document.addEventListener('click', (e) => {
     const element = document.getElementById(id);
     if (element) {
       element.textContent = translations[lang][elementsToUpdate[id]];
+    }
+  });
+
+    const visiblePages = ['counting-score-page', 'solving-score-page', 'inequality-score-page'];  // Add your page IDs
+  visiblePages.forEach(pageId => {
+    const page = document.getElementById(pageId);
+    if (page && page.style.display !== 'none') {
+      let percentage = 0;
+      let messageElementId = '';
+
+      /*if (pageId === 'counting-score-page') {
+        showScoreCounting();  // Assuming this exists
+      } else if (pageId === 'solving-score-page') {
+        showSolvingScore();
+      } else if (pageId === 'inequality-score-page') {
+        showInequalityScore();  // Assuming this exists
+      }*/
+
+      if (pageId === 'counting-score-page') {
+        percentage = currentCountingPercentage;  // Ensure this global variable is set
+        messageElementId = 'counting-score-message';
+      } else if (pageId === 'solving-score-page') {
+        percentage = currentSolvingPercentage;
+        messageElementId = 'solving-score-message';
+      } else if (pageId === 'inequality-score-page') {
+        percentage = currentInequalityPercentage;
+        messageElementId = 'inequality-score-message';
+      }
+      
+      if (percentage > 0 && messageElementId) {
+        const messageElement = document.getElementById(messageElementId);
+
+        if (messageElement) {
+          const { message } = getScoreMessage(percentage);  // Re-call with new lang
+          messageElement.textContent = message;
+          console.log('Updated score message for', pageId, 'to:', message);  // Debug log
+        }
+
+        if (pageId === 'solving-score-page' || pageId === 'inequality-score-page') {
+          const yourScoreElement = document.getElementById('ur_score');
+          if (yourScoreElement) {
+            yourScoreElement.textContent = `${translations[lang]['ur_score']}: ${Math.round(percentage)}%`;
+          }
+        }
+      }
     }
   });
 
@@ -1395,24 +1415,6 @@ document.addEventListener('click', (e) => {
     updateCurrentLanguage(lang);
   }
 }
-
-/* window.currentLanguage = lang;
-
-function updateTexts(lang) {
-    document.getElementById("btn").innerText = translations[lang].button;
-}
-
-  * document.querySelectorAll('.language-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    // Remove active class from all buttons and add it to the clicked button
-    document.querySelectorAll('.language-btn').forEach(btn => btn.classList.remove('active'));
-    this.classList.add('active');
-    
-    // Get selected language from the data-lang attribute
-    const selectedLang = this.getAttribute('data-lang');
-    
-    // Change the language
-    changeLanguage(selectedLang); */
 
     document.querySelectorAll('.language-btn').forEach(button => {
   button.addEventListener('click', function () {

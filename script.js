@@ -1,9 +1,9 @@
 const defaultConfig = {
       background_color: '#1e40af',
-      surface_color: '#60a5fa',
+      surface_color: '#feffbfff',
       text_color: '#000',
-      primary_action_color: '#1e40af',
-      secondary_action_color: '#60a5fa',
+      primary_action_color: '#cbcb18ff',
+      secondary_action_color: '#6fa8eeff',
       app_title: 'PriMatika',
       counting_button: 'Counting',
       solving_button: 'Solving',
@@ -37,6 +37,10 @@ const defaultConfig = {
     let currentInequalityIndex = 0;
     let inequalityScore = 0;
     
+    let currentCountingPercentage = 0;
+    let currentSolvingPercentage = 0;
+    let currentInequalityPercentage = 0;
+
     let countingTries = 0;
     let currentLanguage = localStorage.getItem('lang') || 'en';
     
@@ -119,7 +123,7 @@ const defaultConfig = {
         btn.style.color = bgColor;
       });
 
-      const scoreDisplays = document.querySelectorAll('score-display');
+      const scoreDisplays = document.querySelectorAll('.score-display');
       scoreDisplays.forEach(sd => {
         sd.style.background = surfaceColor;
       });
@@ -301,9 +305,9 @@ button.addEventListener('click', () => {
       showPage('number-table-page');
     });
 
-    document.getElementById('inequality-btn').addEventListener('click', () => {
-      showPage('inequality-difficulty-page');
-    });
+  document.getElementById('inequality-btn').addEventListener('click', () => {
+  showPage('inequality-difficulty-page');
+});
 
     // Back button navigation
     document.getElementById('back-from-counting-difficulty').addEventListener('click', () => {
@@ -394,17 +398,25 @@ button.addEventListener('click', () => {
 }
 
     function getScoreMessage(percentage) {
-      if (percentage === 100) {
-        return { icon: '🎉', message: 'Perfect! Amazing work!' };
-      } else if (percentage >= 80) {
-        return { icon: '🌟', message: 'Great job! Keep it up!' };
-      } else if (percentage >= 60) {
-        return { icon: '👍', message: 'Good effort! Practice more!' };
-      } else if (percentage >= 40) {
-        return { icon: '😊', message: 'Nice try! Keep practicing!' };
-      } else {
-        return { icon: '💪', message: 'Keep trying! You can do it!' };
-      }
+      const lang = localStorage.getItem('lang') || 'en';
+       let messageKey;
+
+  if (percentage === 100) {
+    messageKey = 'score_message_100';
+  } else if (percentage >= 80) {
+    messageKey = 'score_message_80';
+  } else if (percentage >= 60) {
+    messageKey = 'score_message_60';
+  } else if (percentage >= 40) {
+    messageKey = 'score_message_40';
+  } else {
+    messageKey = 'score_message_below';
+  }
+  
+  const message = translations[lang][messageKey] || translations['en'][messageKey];  // Fallback to English
+  const icon = (percentage === 100) ? '🎉' : (percentage >= 80) ? '🌟' : (percentage >= 60) ? '👍' : (percentage >= 40) ? '😊' : '💪';
+  
+  return { icon, message };
     }
 
     // ===== COUNTING SECTION =====
@@ -512,6 +524,7 @@ function handleCountingClick(button, value) {
 function showCountingScore() {
   const totalQuestions = totalCountingQuestions;
   const percentage = (countingScore / totalQuestions) * 100;
+  currentCountingPercentage = percentage;
 
   const scoreIcon = document.getElementById('counting-score-icon');
   const scoreNumber = document.getElementById('counting-score-number');
@@ -535,7 +548,7 @@ document.getElementById('counting-try-again-btn').addEventListener('click', () =
 });
 
 document.getElementById('counting-difficulty-btn').addEventListener('click', () => {
-  showPage('counting-btn-page');
+  showPage('counting-difficulty-page');
 });
 
 // ========================
@@ -723,11 +736,13 @@ function shuffle(arr) {
           }
         }, 1500);
       }
+
     });
 
-    function showSolvingScore() {
+  function showSolvingScore() {
       const totalQuestions = solvingQuestions.length;
       const percentage = (solvingScore / totalQuestions) * 100;
+      currentSolvingPercentage = percentage;
       
       const scoreIcon = document.getElementById('solving-score-icon');
       const scoreNumber = document.getElementById('solving-score-number');
@@ -739,10 +754,12 @@ function shuffle(arr) {
       scoreNumber.textContent = `${solvingScore} / ${totalQuestions}`;
       scoreMessage.textContent = message;
 
+      const yourScoreText = message[currentLanguage]?.yourScore || "Your Score";
+      document.getElementById('ur-score').textContent = `${yourScoreText}: ${Math.round(percentage)}%`;  
       applyQuizColors();
       showPage('solving-score-page');
-    }
-
+    
+  }
     document.getElementById('solving-try-again-btn').addEventListener('click', () => {
       startSolving(solvingDifficulty, currentOperation);
     });
@@ -750,7 +767,7 @@ function shuffle(arr) {
     document.getElementById('solving-difficulty-btn').addEventListener('click', () => {
       showPage('solving-difficulty-page');
     });
-
+  
     // ===== NUMBER TABLE SECTION =====
 
 
@@ -972,7 +989,8 @@ function shuffle(arr) {
     function showInequalityScore() {
       const totalQuestions = inequalityQuestions.length;
       const percentage = (inequalityScore / totalQuestions) * 100;
-      
+      currentInequalityPercentage = percentage;
+
       const scoreIcon = document.getElementById('inequality-score-icon');
       const scoreNumber = document.getElementById('inequality-score-number');
       const scoreMessage = document.getElementById('inequality-score-message');
@@ -983,9 +1001,12 @@ function shuffle(arr) {
       scoreNumber.textContent = `${inequalityScore} / ${totalQuestions}`;
       scoreMessage.textContent = message;
 
+      const yourScoreText = message[currentLanguage]?.yourScore || "Your Score";
+      document.getElementById('ur-score').textContent = `${yourScoreText}: ${Math.round(percentage)}%`;
+
       applyQuizColors();
       showPage('inequality-score-page');
-      showPage('inequality-difficulty-page');
+      //showPage('inequality-difficulty-page');
     }
 
     document.getElementById('inequality-options').addEventListener('click', (e) => {
@@ -1000,9 +1021,9 @@ function shuffle(arr) {
       startInequalityQuiz(inequalityDifficulty);
     });
 
-    document.getElementById('inequality-change-difficulty-btn').addEventListener('click', () => {
-      showPage('inequality-difficulty-page');
-    });
+  document.getElementById('inequality-difficulty-btn').addEventListener('click', () => { 
+  showPage('inequality-difficulty-page');
+});
 
     // Initialize
     if (window.elementSdk) {

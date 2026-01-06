@@ -65,6 +65,8 @@
       font-weight: 700;
       margin: 0 0 12px 0;
       color: rgb(24, 23, 22);
+      background-color: #dbd87f;
+      border-radius: clamp(12px, 2vw, 16px);
     }
 
     .subtitle {
@@ -73,6 +75,12 @@
       opacity: 0.9;
       color: rgb(24, 23, 22);
     }
+
+    #welcome-subtitle{
+      justify-content: center;
+      background-color: #ede83f;
+      border-radius: clamp(12px, 2vw, 16px);
+    } 
 
     .form-container {
       background: #faba60;
@@ -220,7 +228,9 @@
 <div class="app-wrapper">
   <div class="welcome-container" id="welcome-container">
     <div class="app-icon">
+      <img src="gifs/pretty-derby-matikane.gif" width="20%" height="20%">
     <img src="logo_noname.png" width="40%" height="40%" alt="PriMatika Logo">
+    <img src="gifs/pretty-derby-matikane.gif" width="20%" height="20%">
     </div>
     <h1 class="title" id="welcome-title">Welcome to PriMatika!</h1>
     <p class="subtitle" id="welcome-subtitle">Let's get to know you</p>
