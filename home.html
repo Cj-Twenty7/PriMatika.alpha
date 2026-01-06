@@ -659,7 +659,7 @@
    <div class="page" id="counting-difficulty-page">
     <div class="header">
       <button class="back-btn sfx-click" id="back-from-counting-difficulty">←Back</button>
-     <h1 class="title" id="counting-difficulty-page">Change Difficulty</h1>
+     <h1 class="title" id="choose-count-dif"> Change Difficulty</h1>
     </div>
     <div class="operation-grid">
       <button class="operation-btn sfx-click" id="counting-easy-btn"> 
@@ -1157,6 +1157,7 @@ document.addEventListener('click', (e) => {
       const ineqbtntext = document.getElementById('ineq-btn-text');
       const choosesolvedif = document.getElementById('choose-solve-dif');
       const chooseineqdif = document.getElementById('choose-ineq-dif');
+      const choosecountdif = document.getElementById('choose-count-dif');
       const iezdif = document.getElementById('i-ez-dif');
       const sezdif = document.getElementById('s-ez-dif');
       const cezdif = document.getElementById('c-ez-dif');
@@ -1344,6 +1345,7 @@ document.addEventListener('click', (e) => {
     'ineq-btn-text': 'ineq_btn_text',
     'choose-solve-dif': 'choose_dif',
     'choose-ineq-dif': 'choose_dif',
+    'choose-count-dif': 'choose_dif',
     'i-ez-dif': 'i_ez_dif',
     's-ez-dif': 's_ez_dif',
     'c-ez-dif': 'c_ez_dif',
@@ -1427,4 +1429,3 @@ function updateTexts(lang) {
   <script src="script.js"></script>
 </body>
 </html>
-
