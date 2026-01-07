@@ -21,7 +21,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Comic Sans MS", cursive, sans-serif;
       color:#ffffff;
       background-image: url("bg2.jpg");
       background-repeat: repeat;
@@ -110,7 +110,7 @@
       border-radius: 12px;
       box-sizing: border-box;
       transition: all 0.2s;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
     .form-input:focus {
@@ -172,18 +172,18 @@
     }
 
     .language-selector {
-      position: fixed;
-      bottom: clamp(12px, 2vw, 20px);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: clamp(6px, 1vw, 8px);
-      background: rgba(0, 0, 0, 0.3);
-      padding: clamp(6px, 1vw, 8px);
-      border-radius: clamp(8px, 2vw, 12px);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
+  position: fixed;
+  bottom: clamp(12px, 2vw, 20px);
+  right: clamp(12px, 2vw, 20px);
+  display: flex;
+  gap: clamp(6px, 1vw, 8px);
+  background: rgba(0, 0, 0, 0.3);
+  padding: clamp(6px, 1vw, 8px);
+  border-radius: clamp(8px, 2vw, 12px);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  flex-direction: row;
+}
 
     .language-btn {
       padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2.5vw, 16px);
@@ -296,12 +296,10 @@
 
 </div>
 
-<audio id="clickSound" src="sound-7.mp3" preload="auto"></audio>
-
+    <audio id="clickSound" src="digital-click-357350.mp3" preload="auto"></audio>
     <audio id="bg-music" autoplay loop>
-        <source src="bgm2-index.mp3" type="audio/mpeg">
-        <source src="music.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
+    <source src="bgm2-index.mp3" type="audio/mpeg">
+    <source src="music.ogg" type="audio/ogg">
     </audio>
 
   <script>

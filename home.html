@@ -6,10 +6,6 @@
   <title>PriMatika</title>
   <script src="/_sdk/element_sdk.js"></script>
   <style>
-    * {
-  touch-action: manipulation;
-}
-
     html, body {
   width: 100%;
   max-width: 100%;
@@ -21,7 +17,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Comic Sans MS", cursive, sans-serif;
       height: 100%;
       width: 100%;
       background-image: url("bg2.jpg") !important; 
@@ -55,6 +51,13 @@
       padding-top: clamp(10px, 3vw, 20px);
       position: relative;
       flex-shrink: 0;
+      opacity: 0.9;
+      background-image: url('gifs/umamusumeprettyderby.gif');
+      background-size: auto 70%;  /* Scales height to button height, width auto for aspect ratio */
+      background-position: 80% 90%;  /* Starts at left center */
+      background-repeat: no-repeat;  /* Prevents tiling */
+      position: relative;  /* Ensures layering works */
+      z-index: 0;  /* Keeps text on top */
     }
 
     .back-btn {
@@ -90,17 +93,18 @@
     .title {
       font-size: clamp(24px, 5vw, 32px);
       font-weight: 700;
-      margin: 0;
+      margin: 0% 30%;
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
-    .title, .h1 {
+    .title {
       background-color: rgb(228, 220, 117);
       border-radius: clamp(8px, 2vw, 10px);
       opacity: 0.9;
-      width: fit-content;
-      margin-left: 38%;
       padding: 7px;
+      
     }
+
     .emoji {
       width: 70%;
     }
@@ -112,6 +116,7 @@
       max-width: 80%;
       margin: 0 auto;
       width: 100%;
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
     @media (orientation: landscape) and (max-height: 600px) {
@@ -123,6 +128,7 @@
     }
 
     .menu-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       --surface-color: #60a5fa;
       display: flex;
       align-items: center;
@@ -196,6 +202,7 @@
     }
 
     .operation-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 24px);
       font-size: clamp(20px, 4vw, 28px);
       font-weight: 700;
@@ -227,7 +234,8 @@
       max-width: 500px;
       margin: 0 auto;
       width: 100%;
-      overflow-y: auto;
+      overflow-y: hidden;
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
     .quiz-instruction {
@@ -237,10 +245,12 @@
       background-color: rgb(228, 220, 117);
       border-radius: clamp(10px, 2vw, 12px);
       opacity: 0.9;
+      
     }
 
     .progress-container {
       margin-bottom: clamp(16px, 3vw, 24px);
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
     .progress-text {
@@ -262,6 +272,7 @@
     }
 
     .number-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       padding: clamp(20px, 4vw, 32px);
       font-size: clamp(24px, 5vw, 32px);
       font-weight: 700;
@@ -315,6 +326,7 @@
   }
 
     .equation-container {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -402,6 +414,7 @@
     }
 
     .check-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       padding: clamp(16px, 3vw, 20px) clamp(32px, 6vw, 48px);
       font-size: clamp(18px, 4vw, 24px);
       font-weight: 700;
@@ -423,6 +436,7 @@
     }
 
     .feedback-message {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       font-size: clamp(18px, 4vw, 24px);
       font-weight: 700;
       padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 32px);
@@ -431,6 +445,7 @@
     }
 
     .score-display {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -467,6 +482,7 @@
     }
 
     .try-again-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       padding: clamp(12px, 2.5vw, 16px) clamp(24px, 4vw, 32px);
       font-size: clamp(16px, 3vw, 18px);
       font-weight: 600;
@@ -560,6 +576,7 @@
     }
 
     .inequality-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       padding: clamp(20px, 4vw, 32px);
       font-size: clamp(32px, 7vw, 48px);
       font-weight: 700;
@@ -589,20 +606,21 @@
     }
 
     .language-selector {
-      position: fixed;
-      bottom: clamp(12px, 2vw, 20px);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: clamp(6px, 1vw, 8px);
-      background: rgba(0, 0, 0, 0.3);
-      padding: clamp(6px, 1vw, 8px);
-      border-radius: clamp(8px, 2vw, 12px);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
+    position: fixed;
+    bottom: clamp(12px, 2vw, 20px);
+    right: clamp(12px, 2vw, 20px);
+    display: flex;
+    gap: clamp(6px, 1vw, 8px);
+    background: rgba(0, 0, 0, 0.3);
+    padding: clamp(6px, 1vw, 8px);
+    border-radius: clamp(8px, 2vw, 12px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    flex-direction: row;
+}
 
     .language-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
       padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2.5vw, 16px);
       font-size: clamp(12px, 2vw, 14px);
       font-weight: 600;
@@ -634,6 +652,12 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    .language-btn.disabled {
+  background-color: rgba(255, 0, 0, 0.3);  
+  border: 2px solid #ff0000;  
+  transition: background-color 0.3s;
+}
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -679,7 +703,7 @@
    <!-- Counting Difficulty Page -->
    <div class="page" id="counting-difficulty-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-counting-difficulty">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-counting-difficulty">🔙</button>
      <h1 class="title" id="choose-count-dif"> Change Difficulty</h1>
     </div>
     <div class="operation-grid">
@@ -708,7 +732,7 @@
    
    <!-- Counting Quiz Page -->
    <div class="page" id="counting-quiz-page">
-    <div class="header"><button class="back-btn sfx-click" id="back-from-counting-quiz">←Back</button>
+    <div class="header"><button class="back-btn sfx-click" id="back-from-counting-quiz">🔙</button>
      <h1 class="title" id="tap-in-order">Tap in Order</h1>
     </div>
     <div class="quiz-container">
@@ -726,7 +750,7 @@
    <!-- Counting Score Page -->
    <div class="page" id="counting-score-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-counting-score">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-counting-score">🔙</button>
      <h1 class="title" id="ur-score">Your Score</h1>
     </div>
     <div class="quiz-container">
@@ -751,7 +775,7 @@
    <!-- Solving Difficulty Page -->
   <div class="page" id="solving-difficulty-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-solving-difficulty">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-solving-difficulty">🔙</button>
      <h1 class="title" id="choose-solve-dif">Change Difficulty</h1>
     </div>
     <div class="operation-grid">
@@ -776,7 +800,7 @@
    <!-- Operation Selection Page -->
    <div class="page" id="operation-selection-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-operation-selection">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-operation-selection">🔙</button>
      <h1 class="title" id="choose-ope">Choose Operation</h1>
     </div>
     <div class="operation-grid">
@@ -794,7 +818,7 @@
    <!-- Solving Quiz Page -->
    <div class="page" id="solving-quiz-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-solving-quiz">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-solving-quiz">🔙</button>
      <h1 class="title" id="solve-it">Solve It!</h1>
     </div>
     <div class="equation-container">
@@ -814,7 +838,7 @@
    <!-- Solving Score Page -->
    <div class="page" id="solving-score-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-solving-score">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-solving-score">🔙</button>
      <h1 class="title" id="ur-score">Your Score</h1>
     </div>
     <div class="quiz-container">
@@ -839,21 +863,21 @@
    <!-- Number Table Range Selection Page -->
    <div class="page" id="number-table-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-number-table">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-number-table">🔙</button>
      <h1 class="title" id="choose-range">Choose a Range</h1>
     </div>
-    <div class="operation-grid" id="number-table-range-grid"><!-- Range buttons will be generated here -->
+    <div class="operation-grid" id="number-table-range-grid" sfx-click><!-- Range buttons will be generated here -->
     </div>
    </div>
    
    <!-- Number Table Display Page -->
    <div class="page" id="number-table-display-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-number-display">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-number-display">🔙</button>
      <h1 class="title" id="number-display-title" itemid="num-title">Numbers</h1>
     </div>
     <div class="operation-grid">
-     <div class="number-display-list" id="number-display-list"><!-- Individual numbers will be generated here -->
+     <div class="number-display-list" id="number-display-list" sfx-click><!-- Individual numbers will be generated here -->
      </div>
     </div>
    </div>
@@ -861,7 +885,7 @@
    <!-- Inequality Difficulty Page -->
    <div class="page" id="inequality-difficulty-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-inequality-difficulty">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-inequality-difficulty">🔙</button>
      <h1 class="title" id="choose-ineq-dif">Change Difficulty</h1>
     </div>
     <div class="operation-grid">
@@ -888,7 +912,7 @@
    <!-- Inequality Quiz Page -->
    <div class="page" id="inequality-quiz-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-inequality-quiz">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-inequality-quiz">🔙</button>
      <h1 class="title" id="comp-num">Compare Numbers</h1>
     </div>
     <div class="quiz-container">
@@ -920,7 +944,7 @@
    <!-- Inequality Score Page -->
    <div class="page" id="inequality-score-page">
     <div class="header">
-      <button class="back-btn sfx-click" id="back-from-inequality-score">←Back</button>
+      <button class="back-btn sfx-click" id="back-from-inequality-score">🔙</button>
      <h1 class="title" id="ur-score">Your Score</h1>
     </div>
     <div class="quiz-container">
@@ -947,23 +971,23 @@
     <button onclick="changeLanguage('en')" class="language-btn active sfx-click" data-lang="en">Eng</button> 
     <button onclick="changeLanguage('fil')" class="language-btn sfx-click" data-lang="fil">Fil</button> 
     <button onclick="changeLanguage('hil')" class="language-btn sfx-click" data-lang="hil">Hil</button>
+    <button id="mute-btn" class="language-btn sfx-click" title="Mute/Unmute Background Music">🎵</button>
+    <button id="tts-btn" class="language-btn sfx-click" title="Enable/Disable Text-to-Speech">🔊</button>
   </div>
+
+
    
   </div>
-    <audio id="clickSound" src="sound-7.mp3" preload="auto"></audio>
-
-    <audio id="bg-music" autoplay loop>
-        <source src="bgm1-homescreen.mp3" type="audio/mpeg">
-        <source src="music.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
+    <audio id="clickSound" src="digital-click-357350.mp3" preload="auto"></audio>
+    <audio id="bg-music" autoplay loop preload="auto">
+    <source src="bgm2-index.mp3" type="audio/mpeg">
+    <source src="music.ogg" type="audio/ogg">
     </audio>
 
 
 
-  <script>
 
-    
-    const sound = document.getElementById('clickSound');
+  <script>
 
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.sfx-click')) return;
@@ -972,14 +996,13 @@ document.addEventListener('click', (e) => {
   sound.play();
 });
 
-/*
     const button = document.getElementById('counting-btn');
     const sound = document.getElementById('clickSound');
 
     button.addEventListener('click', () => {
       sound.currentTime = 0; // restart sound if clicked quickly
       sound.play();
-    }); */
+    }); 
 
     document.addEventListener('click', () => {
       sound.load();
@@ -1117,68 +1140,7 @@ document.addEventListener('click', (e) => {
     score_message_below: 'Padayon! Kaya mo na!',
   }
 }
-
-     const numberWords = {
-  en: {
-    1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
-    6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
-    11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen",
-    16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty",
-    21: "twenty-one", 22: "twenty-two", 23: "twenty-three", 24: "twenty-four", 25: "twenty-five",
-    26: "twenty-six", 27: "twenty-seven", 28: "twenty-eight", 29: "twenty-nine", 30: "thirty",
-    31: "thirty-one", 32: "thirty-two", 33: "thirty-three", 34: "thirty-four", 35: "thirty-five",
-    36: "thirty-six", 37: "thirty-seven", 38: "thirty-eight", 39: "thirty-nine", 40: "forty",
-    41: "forty-one", 42: "forty-two", 43: "forty-three", 44: "forty-four", 45: "forty-five",
-    46: "forty-six", 47: "forty-seven", 48: "forty-eight", 49: "forty-nine", 50: "fifty",
-    51: "fifty-one", 52: "fifty-two", 53: "fifty-three", 54: "fifty-four", 55: "fifty-five",
-    56: "fifty-six", 57: "fifty-seven", 58: "fifty-eight", 59: "fifty-nine", 60: "sixty",
-    61: "sixty-one", 62: "sixty-two", 63: "sixty-three", 64: "sixty-four", 65: "sixty-five",
-    66: "sixty-six", 67: "sixty-seven", 68: "sixty-eight", 69: "sixty-nine", 70: "seventy",
-    71: "seventy-one", 72: "seventy-two", 73: "seventy-three", 74: "seventy-four", 75: "seventy-five",
-    76: "seventy-six", 77: "seventy-seven", 78: "seventy-eight", 79: "seventy-nine", 80: "eighty",
-    81: "eighty-one", 82: "eighty-two", 83: "eighty-three", 84: "eighty-four", 85: "eighty-five",
-    86: "eighty-six", 87: "eighty-seven", 88: "eighty-eight", 89: "eighty-nine", 90: "ninety",
-    91: "ninety-one", 92: "ninety-two", 93: "ninety-three", 94: "ninety-four", 95: "ninety-five",
-    96: "ninety-six", 97: "ninety-seven", 98: "ninety-eight", 99: "ninety-nine", 100: "one hundred"
-  },
-  fil: {
-    1: "isa", 2: "dalawa", 3: "tatlo", 4: "apat", 5: "lima", 6: "anim", 7: "pito", 8: "walo", 9: "siyam", 10: "sampu",
-    11: "labing-isa", 12: "labindalawa", 13: "labintatlo", 14: "labing-apat", 15: "labing-lima", 16: "labing-anim", 17: "labimpito", 18: "labing-walo", 19: "labingsiyam", 20: "dalawampu",
-    21: "dalawampu't isa", 22: "dalawampu't dalawa", 23: "dalawampu't tatlo", 24: "dalawampu't apat", 25: "dalawampu't lima", 26: "dalawampu't anim", 27: "dalawampu't pito", 28: "dalawampu't walo", 29: "dalawampu't siyam",
-    30: "tatlumpu", 31: "tatlumpu't isa", 32: "tatlumpu't dalawa", 33: "tatlumpu't tatlo", 34: "tatlumpu't apat", 35: "tatlumpu't lima", 36: "tatlumpu't anim", 37: "tatlumpu't pito", 38: "tatlumpu't walo", 39: "tatlumpu't siyam",
-    40: "apatnapu", 41: "apatnapu't isa", 42: "apatnapu't dalawa", 43: "apatnapu't tatlo", 44: "apatnapu't apat", 45: "apatnapu't lima", 46: "apatnapu't anim", 47: "apatnapu't pito", 48: "apatnapu't walo", 49: "apatnapu't siyam",
-    50: "limampu", 51: "limampu't isa", 52: "limampu't dalawa", 53: "limampu't tatlo", 54: "limampu't apat", 55: "limampu't lima", 56: "limampu't anim", 57: "limampu't pito", 58: "limampu't walo", 59: "limampu't siyam",
-    60: "animnapu", 61: "animnapu't isa", 62: "animnapu't dalawa", 63: "animnapu't tatlo", 64: "animnapu't apat", 65: "animnapu't lima", 66: "animnapu't anim", 67: "animnapu't pito", 68: "animnapu't walo", 69: "animnapu't siyam",
-    70: "pitumpu", 71: "pitumpu't isa", 72: "pitumpu't dalawa", 73: "pitumpu't tatlo", 74: "pitumpu't apat", 75: "pitumpu't lima", 76: "pitumpu't anim", 77: "pitumpu't pito", 78: "pitumpu't walo", 79: "pitumpu't siyam",
-    80: "walumpu", 81: "walumpu't isa", 82: "walumpu't dalawa", 83: "walumpu't tatlo", 84: "walumpu't apat", 85: "walumpu't lima", 86: "walumpu't anim", 87: "walumpu't pito", 88: "walumpu't walo", 89: "walumpu't siyam",
-    90: "siyamnapu", 91: "siyamnapu't isa", 92: "siyamnapu't dalawa", 93: "siyamnapu't tatlo", 94: "siyamnapu't apat", 95: "siyamnapu't lima", 96: "siyamnapu't anim", 97: "siyamnapu't pito", 98: "siyamnapu't walo", 99: "siyamnapu't siyam",
-    100: "isandaan"
-  },
-  hil: (() => {
-  const obj = {};
-  const units = ["", "isa", "duha", "tatlo", "apat", "lima", "anom", "pito", "walo", "siyam"];
-  const teens = ["napulo", "napulugisa", "napulugduha", "napulugtulo", "napulugapat", "napuluglima", "napulugunum", "napulugpitu", "napulugwalo", "napulugsiyam"];
-  const tens = ["", "", "duha ka napulo", "tatlo ka napulo", "apat ka napulo", "lima ka napulo", "unom ka napulo", "pitu ka napulo", "walo ka napulo", "siyam ka napulo"];
-
-  // 1-10
-  for (let i = 1; i <= 10; i++) obj[i] = i === 10 ? "napulo" : units[i];
-
-  // 11-19
-  for (let i = 1; i <= 9; i++) obj[10 + i] = teens[i];
-
-  // 20-99
-  for (let t = 2; t <= 9; t++) {
-    obj[t * 10] = tens[t];
-    for (let u = 1; u <= 9; u++) obj[t * 10 + u] = `${tens[t]} ug ${units[u]}`;
-  }
-
-  // 100
-  obj[100] = "isa ka gatus";
-
-  return obj;
-})()
-};    
-
+    
  function onConfigChange() {
       const appWrapper = document.querySelector('.app-wrapper');
       const title = document.getElementById('app-title');
@@ -1239,7 +1201,7 @@ document.addEventListener('click', (e) => {
       //appIcon.style.background = surfaceColor;
       mainTitle.style.color = textColor;
 
-      const allTitles = document.querySelectorAll('.t');
+      const allTitles = document.querySelectorAll('.title');
       allTitles.forEach(t => {
         t.style.color = textColor;
       });
@@ -1431,4 +1393,3 @@ document.addEventListener('click', (e) => {
   <script src="script.js"></script>
 </body>
 </html>
-
