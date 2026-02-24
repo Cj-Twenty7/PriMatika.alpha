@@ -23,8 +23,12 @@
       /*background-image: url("bg2.jpg") !important; 
       background-size: cover;*/
       background: #f6d365;
-    background: -webkit-linear-gradient(to right, rgba(246,211,101,1), rgba(253,160,133,1));
-    background: linear-gradient(to right, rgba(246,211,101,1), rgba(253,160,133,1))
+    background: -webkit-linear-gradient(to right, rgba(246,211,101,1), rgba(253,160,133,0.9));
+    background: 
+    linear-gradient(to right, rgba(246,211,101,0.9), rgba(253,160,133,1)),
+    url('bg-final.png') no-repeat center center;
+    background-size: cover;
+
     }
 
     html {
@@ -147,20 +151,20 @@
       text-align: left;
       opacity: 0.9;
       /*background-image: url('gifs/hashire.gif');*/
-      background-size: auto 100%;  /* Scales height to button height, width auto for aspect ratio */
-      background-position: 0% 50%;  /* Starts at left center */
-      background-repeat: no-repeat;  /* Prevents tiling */
-      position: relative;  /* Ensures layering works */
-      z-index: 0;  /* Keeps text on top */
+      background-size: auto 100%;  
+      background-position: 0% 50%;  
+      background-repeat: no-repeat;  
+      position: relative;  
+      z-index: 0;  
       animation: runAcross 4s linear infinite;
     }
 
     @keyframes runAcross {
   0% {
-    background-position: 0% 50%;  /* Starts at left */
+    background-position: 0% 50%;  
   }
   100% {
-    background-position: 100% 50%;  /* Ends at right */
+    background-position: 100% 50%;
   }
 }
 
@@ -1391,6 +1395,7 @@ document.addEventListener('click', (e) => {
     changeLanguage(selectedLang);
   });
 });
+
 
     (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a73f7ad77e5a9ab',t:'MTc2NDYwNjYwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
 </script>
