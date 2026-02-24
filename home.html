@@ -20,8 +20,11 @@
       font-family: "Comic Sans MS", sans-serif;
       height: 100%;
       width: 100%;
-      background-image: url("bg2.jpg") !important; 
-      background-size: cover;
+      /*background-image: url("bg2.jpg") !important; 
+      background-size: cover;*/
+      background: #f6d365;
+    background: -webkit-linear-gradient(to right, rgba(246,211,101,1), rgba(253,160,133,1));
+    background: linear-gradient(to right, rgba(246,211,101,1), rgba(253,160,133,1))
     }
 
     html {
@@ -98,11 +101,11 @@
     }
 
     .title {
-      background-color: rgb(228, 220, 117);
+      /*background-color: rgb(228, 220, 117);*/
       border-radius: clamp(8px, 2vw, 10px);
       opacity: 0.9;
       padding: 7px;
-      
+
     }
 
     .emoji {
@@ -117,6 +120,7 @@
       margin: 0 auto;
       width: 100%;
       font-family: "Comic Sans MS", sans-serif;
+      background: transparent;
     }
 
     @media (orientation: landscape) and (max-height: 600px) {
